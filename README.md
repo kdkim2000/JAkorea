@@ -52,7 +52,7 @@
 2023-05-19 12:38:21.329  INFO 23568 --- [           main] com.example.demo.DemoApplication         : Started DemoApplication in 3.397 seconds (JVM running for 3.987)
 ```
 
-5. 접속하기 : [http://](http://localhost:8080/)
+5. 접속하기 : [http://localhost:8080/](http://localhost:8080/)
 ```
 Whitelabel Error Page
 This application has no explicit mapping for /error, so you are seeing this as a fallback.
