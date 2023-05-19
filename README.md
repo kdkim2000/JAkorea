@@ -35,25 +35,33 @@
 - [X] Gradle - Groovy
 - [X] Java
 - [X] 2.7.12
+- [X] Project Metadata
+- Group : com.samsung.sds
+- Artifact : study
+- Name : JAKorea
+- Description : JAKorea SpringBoot study
+- Package name : com.samsung.sds.study
 - [X] Jar
 - [X] 11
 - [X] Spring Web
-![image](https://github.com/kdkim2000/JAkorea/assets/26553219/79432eba-59eb-4473-b28c-bea11a2b1cf3)
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/29f8fde2-4aaa-472a-b376-6d4ba1a09823)
+- [https://start.spring.io/#!type=gradle...](https://start.spring.io/#!type=gradle-project&language=java&platformVersion=2.7.12&packaging=jar&jvmVersion=11&groupId=com.samsung.sds&artifactId=study&name=JAKorea&description=JAKorea%20SpringBoot%20study&packageName=com.samsung.sds.study&dependencies=web)
+
 
 2. 다운로드 받아서 풀기
 3. Intelij 로 열기
-- src/main/java/com/example/demo/DemoApplication.java
+- src/main/java/com/samsung/sds/study/StudyApplication.java
 ```java
-package com.example.demo;
+package com.samsung.sds.study;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class StudyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(StudyApplication.class, args);
 	}
 
 }
@@ -62,11 +70,13 @@ public class DemoApplication {
 
 ### 실행하기
 ```
+오후 9:17:26: Executing ':StudyApplication.main()'...
+
 > Task :compileJava
 > Task :processResources
 > Task :classes
 
-> Task :DemoApplication.main()
+> Task :StudyApplication.main()
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -76,15 +86,15 @@ public class DemoApplication {
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::               (v2.7.12)
 
-2023-05-19 12:38:18.683  INFO 23568 --- [           main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 11.0.19 on DESKTOP-2R6AV3M with PID 23568 (C:\JAKorea\demo (1)\demo\build\classes\java\main started by kdkim in C:\JAKorea\demo (1)\demo)
-2023-05-19 12:38:18.687  INFO 23568 --- [           main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2023-05-19 12:38:20.655  INFO 23568 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-05-19 12:38:20.671  INFO 23568 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-05-19 12:38:20.672  INFO 23568 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-2023-05-19 12:38:20.835  INFO 23568 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-05-19 12:38:20.836  INFO 23568 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2066 ms
-2023-05-19 12:38:21.319  INFO 23568 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-05-19 12:38:21.329  INFO 23568 --- [           main] com.example.demo.DemoApplication         : Started DemoApplication in 3.397 seconds (JVM running for 3.987)
+2023-05-19 21:17:29.927  INFO 31072 --- [           main] com.samsung.sds.study.StudyApplication   : Starting StudyApplication using Java 11.0.19 on DESKTOP-2R6AV3M with PID 31072 (C:\JAKorea\study\build\classes\java\main started by kdkim in C:\JAKorea\study)
+2023-05-19 21:17:29.934  INFO 31072 --- [           main] com.samsung.sds.study.StudyApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-05-19 21:17:31.719  INFO 31072 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-19 21:17:31.732  INFO 31072 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-19 21:17:31.732  INFO 31072 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2023-05-19 21:17:31.889  INFO 31072 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-19 21:17:31.889  INFO 31072 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1874 ms
+2023-05-19 21:17:32.369  INFO 31072 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-19 21:17:32.380  INFO 31072 --- [           main] com.samsung.sds.study.StudyApplication   : Started StudyApplication in 3.005 seconds (JVM running for 3.561)
 ```
 ### 접속하기 
 - [http://localhost:8080/](http://localhost:8080/)
@@ -132,7 +142,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
-group = 'com.example'
+group = 'com.samsung.sds'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -157,11 +167,11 @@ tasks.named('test') {
 ```
 - /src/main/resources/application.properties
 ```bash
-#h2 console 활성화 및 경로 설정
+#h2 console
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console
 
-#h2 db 설정
+#h2 db
 spring.datasource.url=jdbc:h2:~/test;
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
@@ -169,32 +179,30 @@ spring.datasource.password=
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
 
-#hibernate 설정
+#hibernate
 spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.properties.hibernate.show_sql=true
 spring.jpa.hibernate.ddl-auto=create
 ```
 ### Lombok Plungins 설치
-- settings (Ctrl + Alt + S)
+- File > settings (Ctrl + Alt + S)
 - plugins > Marketplace 에서 "lombok" 검색
 - "Lombok Builder Helper" Install 
 - 설치후 리드드
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/89c70a7e-0252-4b24-87d0-2d5c00e12a3b)
 
 ### Entity 설계
-- package 만들기
+- package 만들기 : com.samsung.sds.study.member
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/90c37f00-f625-44ad-882e-f0ef3dcfcf2d)
-- /src/main/java/com/example/demo/entity/Member.java
-```java
-package com.example.demo.entity;
+- Class 만들기 : Member
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/11d3cd5a-cecf-4c61-b468-3cad40ccf60d)
 
-import lombok.Getter;
-import lombok.Setter;
+```java
+package com.samsung.sds.study.member;
+
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
 public class Member {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -206,6 +214,56 @@ public class Member {
 }
 ```
 ### SpringBoot 다시 실행하기
+```bash
+오후 9:50:06: Executing 'bootRun'...
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :bootRunMainClassName UP-TO-DATE
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.12)
+
+2023-05-19 21:50:08.486  INFO 39324 --- [           main] com.samsung.sds.study.StudyApplication   : Starting StudyApplication using Java 11.0.19 on DESKTOP-2R6AV3M with PID 39324 (C:\JAKorea\study\build\classes\java\main started by kdkim in C:\JAKorea\study)
+2023-05-19 21:50:08.489  INFO 39324 --- [           main] com.samsung.sds.study.StudyApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-05-19 21:50:08.802  INFO 39324 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-19 21:50:08.813  INFO 39324 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2023-05-19 21:50:09.087  INFO 39324 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-19 21:50:09.130  INFO 39324 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-05-19 21:50:09.240  INFO 39324 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-05-19 21:50:09.954  INFO 39324 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-19 21:50:10.092  INFO 39324 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-19 21:50:10.103  INFO 39324 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: 
+    
+    drop table if exists member CASCADE 
+Hibernate: 
+    
+    create table member (
+       id bigint generated by default as identity,
+        email varchar(255),
+        name varchar(255),
+        primary key (id)
+    )
+2023-05-19 21:50:10.468  INFO 39324 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-19 21:50:10.476  INFO 39324 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 21:50:10.528  INFO 39324 --- [           main] com.samsung.sds.study.StudyApplication   : Started StudyApplication in 2.378 seconds (JVM running for 2.747)
+2023-05-19 21:50:10.543  INFO 39324 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 21:50:10.547  INFO 39324 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-19 21:50:10.551  INFO 39324 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+BUILD SUCCESSFUL in 4s
+4 actionable tasks: 1 executed, 3 up-to-date
+오후 9:50:11: Execution finished 'bootRun'.
+```
 ### H2 DataBase 접속하기
 - [http://localhost:8080/h2-console](#http://localhost:8080/h2-console)
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/106c2228-79ae-4217-9302-67f4d7388f69)
