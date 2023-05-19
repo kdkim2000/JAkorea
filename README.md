@@ -182,9 +182,11 @@ spring.jpa.hibernate.ddl-auto=create
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/89c70a7e-0252-4b24-87d0-2d5c00e12a3b)
 
 ### Entity 설계
-- /src/main/java/com/example/demo/Member.java
+- package 만들기
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/90c37f00-f625-44ad-882e-f0ef3dcfcf2d)
+- /src/main/java/com/example/demo/entity/Member.java
 ```java
-package com.example.demo;
+package com.example.demo.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -241,9 +243,6 @@ Hibernate:
 -Xmx2007m
 -Dfile.encoding=UTF-8
 ```
-
-
-
 
 ## Java 기초문법
 [◀️](#멘토링-운영-계획)
