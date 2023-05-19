@@ -256,11 +256,18 @@ Hibernate:
 ## Swagger 알아보기
 [◀️](#멘토링-운영-계획)
 
-## Backend 구현
-[◀️](#멘토링-운영-계획)
+### Swagger 추가
+- build.gradle
+```groovy
+```
+
 
 ## Github로 소스 관리
 [◀️](#-멘토링-운영-계획)
+
+## Backend 구현
+[◀️](#멘토링-운영-계획)
+
 
 ## Frontend 구현
 [◀️](#멘토링-운영-계획)
