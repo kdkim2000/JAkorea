@@ -11,7 +11,7 @@
 | 주차 |	활동 내용 |
 |--|--|
 |1주차 |	멘토링 방향 수립 및 교재 선정               |
-|2주차 |	프로그램 설치 및 Hello Java 출력           | 
+|2주차 |	[프로그램 설치 및 Hello Java 출력](#1-프로그램-설치-및-Hello-Java-출력)  | 
 |3주차 |	Database 기초 (SQL) + Java 기초문법      | 
 |4주차 |	웹 프로그램 구조 이해 + Java 클래스 이론      | 
 |5주차 |	Swagger 알아보기                       |
@@ -19,7 +19,7 @@
 |7주차 |	Github 를 활용한 소스 관리                | 
 |8주차 |	Frontend 구현                         |
 
-## 프로그램 설치 및 Hello Java 출력
+## 1.프로그램 설치 및 Hello Java 출력
 ### 프로그램 설치
 1. Intelij : https://www.jetbrains.com/ko-kr/idea/
 - [X] Community Edition
