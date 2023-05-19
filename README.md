@@ -236,7 +236,7 @@ Hibernate:
     INSERT INTO MEMBER (NAME, EMAIL) VALUES ('?���?','jun@gmail.com')
 ...
 ```
-#### 실행시 한글 꺠짐 해결
+#### ❓실행시 한글 꺠짐 해결
 - Help > Edit Custom VM Options... 
 - -Dfile.encoding=UTF-8 추가 후 저장, InteliJ 재기동 
 ```
