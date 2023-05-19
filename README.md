@@ -7,7 +7,7 @@
 - 목표 : 프로그램에 대한 기본적인 이해를 바탕으로 응용할 수 있는 역량을 키운다 
 - 진행방법 : 실습을 통해 일단 하고 나중에 이론적 배경을 이해한다 
 - 최종산출물 : Java로 구현한 게시판 프로그램 
-### ■ 멘토링 운영 계획 
+### ■ 멘토링 운영 계획
 | 주차 |	활동 내용 |
 |--|--|
 |1주차 |	멘토링 방향 수립 및 교재 선정               |
@@ -119,13 +119,152 @@ There was an unexpected error (type=Not Found, status=404).
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/71262e49-7913-4494-9a85-2569f679dff2)
 
 ## Database 기초 (SQL)
-## Java 기초문법 
+[◀️](#-멘토링-운영-계획)
+### Database 설치하기
+- build.gradle
+- [x] **pring Data JPA** : Persist data in SQL stores with Java Persistence API using Spring Data and Hibernate.
+- [x] **H2 Database** : Provides a fast in-memory database that supports JDBC API and R2DBC access, with a small (2mb) footprint. Supports embedded and server modes as well as a browser based console application.
+- [x] **Lombok** : Java annotation library which helps to reduce boilerplate code.
+```groovy
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.12'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
+```
+- /src/main/resources/application.properties
+```bash
+#h2 console 활성화 및 경로 설정
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+#h2 db 설정
+spring.datasource.url=jdbc:h2:~/test;
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+
+#hibernate 설정
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.show_sql=true
+spring.jpa.hibernate.ddl-auto=create
+```
+### Lombok Plungins 설치
+- settings (Ctrl + Alt + S)
+- plugins > Marketplace 에서 "lombok" 검색
+- "Lombok Builder Helper" Install 
+- 설치후 리드드
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/89c70a7e-0252-4b24-87d0-2d5c00e12a3b)
+
+### Entity 설계
+- /src/main/java/com/example/demo/Member.java
+```java
+package com.example.demo;
+
+import lombok.Getter;
+import lombok.Setter;
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Setter
+public class Member {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
+    @Column
+    private String name;
+    @Column
+    private String email;
+}
+```
+### SpringBoot 다시 실행하기
+### H2 DataBase 접속하기
+- [http://localhost:8080/h2-console](#http://localhost:8080/h2-console)
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/106c2228-79ae-4217-9302-67f4d7388f69)
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/e3b5c9dd-c098-49c6-a6d1-0f274278489a)
+- SQL 기초
+```SQL
+INSERT INTO MEMBER (NAME, EMAIL) VALUES ('홍길동','gildong@gmail.com');
+SELECT * FROM MEMBER WHERE NAME='홍길동';
+
+UPDATE MEMBER SET NAME = '허준' WHERE NAME='홍길동';
+SELECT * FROM MEMBER;
+
+DELETE MEMBER WHERE NAME='허준';
+SELECT * FROM MEMBER;
+```
+### SpringBoot 시작시 기초 데이터 입력
+- /src/main/resources/import.sql
+```SQL
+INSERT INTO MEMBER (NAME, EMAIL) VALUES ('홍길동','gildong@gmail.com');
+INSERT INTO MEMBER (NAME, EMAIL) VALUES ('허준','jun@gmail.com');
+```
+- SpringBoot 재기동
+```
+...
+Hibernate: 
+    INSERT INTO MEMBER (NAME, EMAIL) VALUES ('?��길동','gildong@gmail.com')
+Hibernate: 
+    INSERT INTO MEMBER (NAME, EMAIL) VALUES ('?���?','jun@gmail.com')
+...
+```
+#### 실행시 한글 꺠짐 해결
+- Help > Edit Custom VM Options... 
+- -Dfile.encoding=UTF-8 추가 후 저장, InteliJ 재기동 
+```
+-Xmx2007m
+-Dfile.encoding=UTF-8
+```
+
+
+
+
+## Java 기초문법
+[◀️](#-멘토링-운영-계획)
+
 ## 웹 프로그램 구조 이해
-## Java 클래스 이론 
-## Swagger 알아보기 
+[◀️](#-멘토링-운영-계획)
+
+## Java 클래스 이론
+[◀️](#-멘토링-운영-계획)
+
+## Swagger 알아보기
+[◀️](#-멘토링-운영-계획)
+
 ## Backend 구현
+[◀️](#-멘토링-운영-계획)
+
 ## Github로 소스 관리
+[◀️](#-멘토링-운영-계획)
+
 ## Frontend 구현
+[◀️](#-멘토링-운영-계획)
 
 
 
