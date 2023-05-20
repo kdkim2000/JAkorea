@@ -21,14 +21,21 @@
 
 ## 프로그램 설치 및 Hello Java 출력
 ### 프로그램 설치
-1. Intelij : https://www.jetbrains.com/ko-kr/idea/
+#### 1. Intelij : https://www.jetbrains.com/ko-kr/idea/
 - [X] Community Edition
 ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/f1c4bb55-e80d-4067-a5eb-0cd4b4774ef9)
 
-
-2. Java : https://www.azul.com/downloads/?package=jdk#zulu
-- [X]  11.0.19+7 Azul Zulu: 11.64.19 Windows x86 64-bit JDK
+#### 2. Java : https://www.azul.com/downloads/?package=jdk#zulu
+- [X] 11.0.19+7 Azul Zulu: 11.64.19 Windows x86 64-bit JDK
 ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/22999e84-237a-4108-8111-4a9824ebec22)
+
+#### 3. Git : https://git-scm.com/download/win
+- [X] 2.40.1 64-bit version of Git for Windows
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/0fc9e269-e05f-4eba-a617-ca6ce28b2bfa)
+
+#### 4. Postman :  https://www.postman.com/downloads/
+- [X] Windows 64-bit
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/8f65a692-04ad-4fdb-a3db-0647ab2227ea)
 
 ### Spring Boot 초기화
 1. Spring boot : https://start.spring.io/
@@ -66,7 +73,6 @@ public class StudyApplication {
 
 }
 ```
-![image](https://github.com/kdkim2000/JAkorea/assets/26553219/c6f72cf8-34d3-45c4-b626-5550c2bbf43b)
 
 ### 실행하기
 ```
@@ -124,7 +130,6 @@ There was an unexpected error (type=Not Found, status=404).
 ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/cfef66db-68bf-4663-8fef-e9d725ce329e)
 
 ### 재실행 하여 다시 접속하기
-- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/a35c6ef5-e649-4420-9097-0fee2ce4a191)
 - [http://localhost:8080/](http://localhost:8080/)
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/71262e49-7913-4494-9a85-2569f679dff2)
 
@@ -188,7 +193,7 @@ spring.jpa.hibernate.ddl-auto=create
 - File > settings (Ctrl + Alt + S)
 - plugins > Marketplace 에서 "lombok" 검색
 - "Lombok Builder Helper" Install 
-- 설치후 리드드
+- 설치후 다시실행하기
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/89c70a7e-0252-4b24-87d0-2d5c00e12a3b)
 
 ### Entity 설계
@@ -303,32 +308,229 @@ Hibernate:
 ```
 
 ## Java 기초문법
-[◀️](#멘토링-운영-계획)
 
 ## 웹 프로그램 구조 이해
-[◀️](#멘토링-운영-계획)
 
 ## Java 클래스 이론
-[◀️](#멘토링-운영-계획)
 
 ## Swagger 알아보기
-[◀️](#멘토링-운영-계획)
 
 ### Swagger 추가
 - build.gradle
 ```groovy
+...
+	//swagger
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+...
 ```
+- src/main/java/com/samsung/sds/study/config/SwaggerConfig.java
+```java
+package com.samsung.sds.study.config;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+
+@Configuration
+@EnableWebMvc
+public class SwaggerConfig {
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.OAS_30)
+                .useDefaultResponseMessages(false)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.samsung.sds.study"))
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
+    }
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("소스 Swagger")
+                .description("SS swagger config")
+                .version("1.0")
+                .build();
+    }
+}
+```
+### Swagger 접속하기
+- http://localhost:8080/swagger-ui/index.html#
 
 ## Github로 소스 관리
-[◀️](#-멘토링-운영-계획)
+### Github Repository 만들
+- https://github.com/new
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/14b65f09-27ba-485a-8c2f-8998f57d7a10)
+### Git 설치
+- [Git 다운로드](https://git-scm.com/downloads)
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/9623166e-1325-4f4f-9175-b9c687e53b45)
 
+### .gitignore 설정
+```git
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+```
+### 로컬 소스와 Github 소스 동기화
+- 로컬 PC의 소스 폴더
+- Gitbash 실행 (Shift + F10)
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/df05815d-7198-427a-86d3-860f74bce757)
+```git
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin  <url>
+git push -u origin main
+```
+### 로컬 소스를 Github 에 올리기
+```git
+git status
+git add .
+git commit -m <msg>
+#add + commit
+git commit -am <msg>
+#push
+git push
+```
 ## Backend 구현
-[◀️](#멘토링-운영-계획)
+### JPA 를 활용한 CRUD
+- src/main/java/com/samsung/sds/study/member/MemberRepository.java
+```java
+package com.samsung.sds.study.member;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MemberRepository extends JpaRepository<Member, Long> {
+}
+```
+### Controller
+- src/main/java/com/samsung/sds/study/member/MemberController.java
+```java
+package com.samsung.sds.study.member;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/member")
+public class MemberController {
+    MemberRepository memberRepository;
+
+    public MemberController(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+    @GetMapping
+    public List<Member>  getMembers(){
+        return memberRepository.findAll();
+    }
+    @GetMapping("/{id}")
+    public Optional<Member> getMember(@PathVariable Long  id){
+        return memberRepository.findById(id);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteMember(@PathVariable Long  id){
+        memberRepository.deleteById(id);
+    }
+
+    @DeleteMapping
+    public void deleteMemberAll(){
+        memberRepository.deleteAll();
+    }
+
+    @PutMapping("/{id}/name")
+    public Member updateMemberName(@PathVariable Long  id,
+                                   @RequestParam String name){
+        Member member = memberRepository.findById(id).get();
+        member.setName(name);
+        return memberRepository.save(member);
+    }
+
+    @PutMapping("/{id}/email")
+    public Member updateMemberEmail(@PathVariable Long  id,
+                                    @RequestParam String email){
+        Member member = memberRepository.findById(id).get();
+        member.setEmail(email);
+        return memberRepository.save(member);
+    }
+    @PutMapping("/{id}")
+    public Member updateMember(@PathVariable Long  id,
+                               @RequestParam String name,
+                               @RequestParam String email){
+        Member member = memberRepository.findById(id).get();
+        member.setEmail(email);
+        member.setName(name);
+        return memberRepository.save(member);
+    }
+    @PostMapping("/member")
+    public Member setMember(@RequestParam String name,
+                            @RequestParam String email){
+        Member member = new Member();
+        member.setEmail(email);
+        member.setName(name);
+        return memberRepository.save(member);
+    }
+    @PostMapping
+    public List <Member>  setMembers(@RequestBody List<Map<String,Object>>members){
+        List <Member> newMembers = new ArrayList<>();
+        for(Map map:members){
+            Member member = new Member();
+            member.setEmail(map.get("email").toString());
+            member.setName(map.get("name").toString());
+            newMembers.add(memberRepository.save(member));
+        }
+        return newMembers;
+    }
+}
+
+```
 
 ## Frontend 구현
-[◀️](#멘토링-운영-계획)
 
 
 
