@@ -568,6 +568,9 @@ public class SwaggerConfig {
 
 
 ## 게시판 구현
+### 게시판 구현을 위한 아키텍처
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/43b47590-d88c-498d-954f-6b94c26ef73d)
+
 ### Thymeleaf 추가
 - build.gradle
 ```groovy
