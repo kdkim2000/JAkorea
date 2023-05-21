@@ -198,7 +198,7 @@ spring.jpa.hibernate.ddl-auto=create
 
 ### Entity 설계
 - package 만들기 : com.samsung.sds.study.member
-- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/90c37f00-f625-44ad-882e-f0ef3dcfcf2d)
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/7513cfa4-2329-4d99-bc45-97e8cb4bd3bb)
 - Class 만들기 : Member
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/11d3cd5a-cecf-4c61-b468-3cad40ccf60d)
 
@@ -307,12 +307,23 @@ Hibernate:
 -Dfile.encoding=UTF-8
 ```
 ## Github로 소스 관리
-### Github Repository 만들
+
+### Github Repository 만들기
 - https://github.com/new
 ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/14b65f09-27ba-485a-8c2f-8998f57d7a10)
+
 ### Git 설치
 - [Git 다운로드](https://git-scm.com/downloads)
-![image](https://github.com/kdkim2000/JAkorea/assets/26553219/9623166e-1325-4f4f-9175-b9c687e53b45)
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/9623166e-1325-4f4f-9175-b9c687e53b45)
+
+### git 환경설정
+- Gitbash 실행 (Shift + F10)
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/df05815d-7198-427a-86d3-860f74bce757)
+```bash
+git config --global user.name "사용자 이름"
+git config --global user.email "사용자 이메일"
+git config --global credential.helper store   
+```
 
 ### .gitignore 설정
 ```git
@@ -358,8 +369,7 @@ out/
 ### 로컬 소스와 Github 소스 동기화
 - 로컬 PC의 소스 폴더
 - Gitbash 실행 (Shift + F10)
-![image](https://github.com/kdkim2000/JAkorea/assets/26553219/df05815d-7198-427a-86d3-860f74bce757)
-```git
+```bash
 git init
 git add .
 git commit -m "first commit"
@@ -368,7 +378,7 @@ git remote add origin  <url>
 git push -u origin main
 ```
 ### 로컬 소스를 Github 에 올리기
-```git
+```bash
 git status
 git add .
 git commit -m <msg>
@@ -533,7 +543,7 @@ public class SwaggerConfig {
 ...
 ```
 - src/main/resources/application.properties
-```groovy
+```bash
 spring.thymeleaf.cache=false
 spring.thymeleaf.enabled=true
 spring.thymeleaf.prefix=classpath:/templates/
@@ -553,7 +563,7 @@ spring.thymeleaf.suffix=.html
 </body>
 </html>
 ```
-### html page 주소연결하기
+### html page 주소 연결하기
 - src/main/java/com/samsung/sds/study/controller/HomeController.java
 ```java
 package com.samsung.sds.study.controller;
@@ -599,6 +609,7 @@ public class Board {
 ### 서버 시작시 초기값 입력
 - src/main/resources/import.sql
 ```sql
+...
 INSERT INTO BOARD (TITLE, CONTENTS ) VALUES ('소스의 오늘 작업','오늘은 SpringBoot를 학습하였습니다.');
 INSERT INTO BOARD (TITLE, CONTENTS ) VALUES ('소스의 내일 작업','내일도 SpringBoot를 학습하겠습니다..');
 ```
@@ -616,7 +627,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 ### Board 를 위한 화면 추가
 - 화면 Design 을 위해 BootStrap 활용
 - https://getbootstrap.com/
-- src/main/resources/templates/board/list.html
+- src/main/resources/templates/boardList.html
 ```html
 <!DOCTYPE html>
 
@@ -656,7 +667,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 </html>
 ```
 
-- src/main/resources/templates/board/form.html
+- src/main/resources/templates/boardForm.html
 ```html
 <!DOCTYPE html>
 
