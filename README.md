@@ -13,11 +13,11 @@
 |1주차 |	멘토링 방향 수립 및 교재 선정               |
 |2주차 |	[프로그램 설치 및 Hello Java 출력](#프로그램-설치-및-Hello-Java-출력)  | 
 |3주차 |	[Database 기초 (SQL)](#Database-기초-SQL) | 
-|4주차 |	[웹 프로그램 구조 이해](#웹-프로그램-구조-이해) + Java 클래스 이론      | 
-|5주차 |	[Swagger 알아보기](#Swagger-알아보기) |
-|6주차 |	[Backend 구현](#Backend-구현)  |
-|7주차 |	[Github로 소스 관리](#Github로-소스-관리)    | 
-|8주차 |	[Frontend 구현](#Frontend-구현)  |
+|4주차 |	[Github로 소스 관리](#Github로-소스-관리)   | 
+|5주차 |	[Backend 구현/실행(1)](#Backend-구현) |
+|6주차 |	[Backend 구현/실행(2)](#swagger-알아보기)  |
+|7주차 |	[게시판 만들기(1)](#게시판-구현) |
+|8주차 |	[게시판 만들기(2)](#Thymeleaf-를-이용하여-View-와-Controller-연결)  |
 
 ## 프로그램 설치 및 Hello Java 출력
 ### 프로그램 설치
@@ -171,7 +171,7 @@ tasks.named('test') {
 
 ```
 - /src/main/resources/application.properties
-```bash
+```groovy
 #h2 console
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console
@@ -306,63 +306,6 @@ Hibernate:
 -Xmx2007m
 -Dfile.encoding=UTF-8
 ```
-
-## Java 기초문법
-
-## 웹 프로그램 구조 이해
-
-## Java 클래스 이론
-
-## Swagger 알아보기
-
-### Swagger 추가
-- build.gradle
-```groovy
-...
-	//swagger
-	implementation 'io.springfox:springfox-boot-starter:3.0.0'
-	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
-...
-```
-- src/main/java/com/samsung/sds/study/config/SwaggerConfig.java
-```java
-package com.samsung.sds.study.config;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-
-@Configuration
-@EnableWebMvc
-public class SwaggerConfig {
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.OAS_30)
-                .useDefaultResponseMessages(false)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.samsung.sds.study"))
-                .paths(PathSelectors.any())
-                .build()
-                .apiInfo(apiInfo());
-    }
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("소스 Swagger")
-                .description("SS swagger config")
-                .version("1.0")
-                .build();
-    }
-}
-```
-### Swagger 접속하기
-- http://localhost:8080/swagger-ui/index.html#
-
 ## Github로 소스 관리
 ### Github Repository 만들
 - https://github.com/new
@@ -434,6 +377,7 @@ git commit -am <msg>
 #push
 git push
 ```
+
 ## Backend 구현
 ### JPA 를 활용한 CRUD
 - src/main/java/com/samsung/sds/study/member/MemberRepository.java
@@ -446,10 +390,11 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 }
 ```
 ### Controller
-- src/main/java/com/samsung/sds/study/member/MemberController.java
+- src/main/java/com/samsung/sds/study/member/MemberRestController.java
 ```java
 package com.samsung.sds.study.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -458,13 +403,11 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/member")
-public class MemberController {
+@RequestMapping("/api/member")
+public class MemberRestController {
+    @Autowired
     MemberRepository memberRepository;
 
-    public MemberController(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
     @GetMapping
     public List<Member>  getMembers(){
         return memberRepository.findAll();
@@ -530,10 +473,357 @@ public class MemberController {
 
 ```
 
-## Frontend 구현
+## Swagger 알아보기
 
+### Swagger 추가
+- build.gradle
+```groovy
+...
+	//swagger
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+...
+```
+- src/main/java/com/samsung/sds/study/config/SwaggerConfig.java
+```java
+package com.samsung.sds.study.config;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
 
+@Configuration
+@EnableWebMvc
+public class SwaggerConfig {
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.OAS_30)
+                .useDefaultResponseMessages(false)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.samsung.sds.study"))
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
+    }
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("소스 Swagger")
+                .description("SS swagger config")
+                .version("1.0")
+                .build();
+    }
+}
+```
+### Swagger 접속하기
+- http://localhost:8080/swagger-ui/index.html#
 
+## 게시판 구현
+### Thymeleaf 추가
+- build.gradle
+```groovy
+...
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+...
+```
+- src/main/resources/application.properties
+```groovy
+spring.thymeleaf.cache=false
+spring.thymeleaf.enabled=true
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+```
+### html page 만들기 
+- src/main/resources/templates/index.html
+```html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<H2 th:text="'안녕하세요? '+ ${name} +'님 반갑습니다.'">안녕하세요? 홍길동 님 반갑습니다.</H2>
+</body>
+</html>
+```
+### html page 주소연결하기
+- src/main/java/com/samsung/sds/study/controller/HomeController.java
+```java
+package com.samsung.sds.study.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class HomeController {
+    @GetMapping
+    public String init(Model model) {
+        model.addAttribute("name","허준");
+        return "index";
+    }
+}
+```
+
+### Board Entity 추가
+- src/main/java/com/samsung/sds/study/board/Board.java
+```java
+package com.samsung.sds.study.board;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Setter
+public class Board {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+    @Column
+    private String title;
+    @Column(length = 2000)
+    private String contents;
+}
+```
+
+### 서버 시작시 초기값 입력
+- src/main/resources/import.sql
+```sql
+INSERT INTO BOARD (TITLE, CONTENTS ) VALUES ('소스의 오늘 작업','오늘은 SpringBoot를 학습하였습니다.');
+INSERT INTO BOARD (TITLE, CONTENTS ) VALUES ('소스의 내일 작업','내일도 SpringBoot를 학습하겠습니다..');
+```
+
+### Board Repository 추가
+- src/main/java/com/samsung/sds/study/board/BoardRepository.java
+```java
+package com.samsung.sds.study.board;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BoardRepository extends JpaRepository<Board, Long> {
+}
+```
+
+### Board 를 위한 화면 추가
+- 화면 Design 을 위해 BootStrap 활용
+- https://getbootstrap.com/
+- src/main/resources/templates/board/list.html
+```html
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="p-3 m-0 border-0 bd-example">
+<H2>Board</H2>
+<p class="fw-medium">총 건수 : <span>1</span></p>
+<table class="table">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">title</th>
+        <th scope="col">contents</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>1</th>
+        <td><a href="form.html">title</a></td>
+        <td>contents</td>
+    </tr>
+    </tbody>
+</table>
+<div class="text-end">
+    <a type="button" class="btn btn-outline-primary" href="form.html">쓰기</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
+```
+
+- src/main/resources/templates/board/form.html
+```html
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="p-3 m-0 border-0 bd-example">
+<H2>Board</H2>
+<form>
+    <input type="hidden">
+    <div class="mb-3">
+        <input type="text" class="form-control" id="inputTitle" placeholder="Title">
+    </div>
+    <div class="mb-3">
+        <textarea class="form-control" id="intpuContent" rows="10" placeholder="Contents"></textarea>
+    </div>
+    <div class="text-end">
+        <a type="button" class="btn btn-outline-primary" href="list.html">취소</a>
+        <button type="submit" class="btn btn-outline-primary">확인</button>
+    </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
+```
+
+### Board Controller 추가
+- src/main/java/com/samsung/sds/study/board/BoardController.java
+```java
+package com.samsung.sds.study.board;
+
+import com.samsung.sds.study.member.Member;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+@Controller
+@RequestMapping("/board")
+public class BoardController {
+    @Autowired
+    BoardRepository boardRepository;
+
+    @GetMapping
+    public String index() {
+        return "redirect:/board/list";
+    }
+    @GetMapping("/list")
+    public String getBoards(Model model) {
+        List<Board> boards = boardRepository.findAll();
+        model.addAttribute("boards", boards);
+        return "boardList.html";
+    }
+    @GetMapping("/form")
+    public String getBoard(Model model,
+                           @RequestParam(required = false) Long id) {
+        Board board;
+        if(id == null){
+            board = new Board();
+        }else{
+            board = boardRepository.findById(id).orElse(null);
+        }
+        model.addAttribute("board", board);
+        return "boardForm.html";
+    }
+    @PostMapping("/form")
+    public String boardSubmit(@ModelAttribute Board board, Model model) {
+        boardRepository.save(board);
+        return "redirect:/board/list";
+    }
+}
+```
+
+### Thymeleaf 를 이용하여 View 와 Controller 연결
+- Thymeleaf 알아보기
+- https://www.thymeleaf.org/documentation.html
+
+###Thymeleaf 문법
+| 표현 | 항목 | 예제 |
+| --- |--- |--- |
+| ${...} | 변수 | th:text="${board.id}" |
+| th:each | 반복처리 | th:each="board: ${boards}" |
+| @{...} | 링크URL | th:href="@{/board/form}" |
+| @{...} | 링크URL with param | th:href="@{/board/form(id=${board.id})}" |
+| @{...} | form summit | action="#" th:action="@{/board/form}" th:object="${board}" method="post" |
+| *{...} | field 연동 | th:field="\*{title}\" |
+
+- src/main/resources/templates/boardList.html
+```html
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="p-3 m-0 border-0 bd-example">
+<H2>Board</H2>
+<p class="fw-medium">총 건수 : <span th:text="${#lists.size(boards)}">1</span></p>
+<table class="table">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">title</th>
+        <th scope="col">contents</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="board: ${boards}">
+        <th th:text="${board.id}">1</th>
+        <td><a th:text="${board.title}" th:href="@{/board/form(id=${board.id})}">title</a></td>
+        <td th:text="${board.contents}">contents</td>
+    </tr>
+    </tbody>
+</table>
+<div class="text-end">
+<a type="button" class="btn btn-outline-primary" th:href="@{/board/form}">쓰기</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
+```
+- src/main/resources/templates/boardForm.html
+```html
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <title>Bootstrap Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="p-3 m-0 border-0 bd-example">
+<H2>Board</H2>
+<form action="#" th:action="@{/board/form}" th:object="${board}" method="post">
+  <input type="hidden" th:field="*{id}">
+  <div class="mb-3">
+    <input type="text" class="form-control" id="inputTitle" placeholder="Title" th:field="*{title}">
+  </div>
+  <div class="mb-3">
+    <textarea class="form-control" id="intpuContent" rows="10" placeholder="Contents" th:field="*{contents}"></textarea>
+  </div>
+  <div class="text-end">
+    <a type="button" class="btn btn-outline-primary" th:href="@{/board/list}">취소</a>
+    <button type="submit" class="btn btn-outline-primary">확인</button>
+  </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
+```
 
