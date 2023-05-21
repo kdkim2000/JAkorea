@@ -21,19 +21,23 @@
 
 ## 프로그램 설치 및 Hello Java 출력
 ### 프로그램 설치
-#### 1. Intelij : https://www.jetbrains.com/ko-kr/idea/
+#### 1. Intelij
+- https://www.jetbrains.com/ko-kr/idea/
 - [X] Community Edition
 ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/f1c4bb55-e80d-4067-a5eb-0cd4b4774ef9)
 
-#### 2. Java : https://www.azul.com/downloads/?package=jdk#zulu
+#### 2. Java
+- https://www.azul.com/downloads/?package=jdk#zulu
 - [X] 11.0.19+7 Azul Zulu: 11.64.19 Windows x86 64-bit JDK
 ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/22999e84-237a-4108-8111-4a9824ebec22)
 
-#### 3. Git : https://git-scm.com/download/win
+#### 3. Git
+- https://git-scm.com/download/win
 - [X] 2.40.1 64-bit version of Git for Windows
 ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/0fc9e269-e05f-4eba-a617-ca6ce28b2bfa)
 
-#### 4. Postman :  https://www.postman.com/downloads/
+#### 4. Postman
+- https://www.postman.com/downloads/
 - [X] Windows 64-bit
 ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/8f65a692-04ad-4fdb-a3db-0647ab2227ea)
 
@@ -399,6 +403,31 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface MemberRepository extends JpaRepository<Member, Long> {
 }
 ```
+### REST API Design Guide
+- URI는 정보의 자원를 표현해야 한다.
+- resource는 동사보다는 명사를, 대문자보다는 소문자를 사용한다.
+- 자원에 대한 행위는 HTTP Method (GET, POST, PUT, DELETE)로 표현한다.
+- URI에 HTTP Method가 들어가면 안된다.
+- URI에 행위에 대한 동사 표현이 들어가면 안된다.
+- 경로 부분 중 변하는 부분은 유일한 값으로 대체한다.
+- 슬래시 구분자(/ )는 계층 관계를 나타내는데 사용한다.
+- URI 마지막 문자로 슬래시(/ )를 포함하지 않는다.
+- URI에 포함되는 모든 글자는 리소스의 유일한 식별자로 사용되어야 하며 URI가 다르다는 것은 리소스가 다르다는 것이고, 역으로 리소스가 다르면 URI도 달라져야 한다.
+- 하이픈(- )은 URI 가독성을 높이는데 사용할 수 있다.
+- 밑줄( _ )은 URI에 사용하지 않는다.
+- URI 경로에는 소문자가 적합하다.
+- URI 경로에 대문자 사용은 피하도록 한다.
+- 파일 확장자는 URI에 포함하지 않는다.
+
+### REST API HTTP Methods
+
+| Method | 설명 |
+| --- |--- |
+| GET | 읽어 오기 |
+| POST | 입력 하기 |
+| PUT | 변경 하기 |
+| DELETE | 삭제하기 |
+
 ### Controller
 - src/main/java/com/samsung/sds/study/member/MemberRestController.java
 ```java
@@ -483,7 +512,10 @@ public class MemberRestController {
 
 ```
 
-## Swagger 알아보기
+## RestApi 시행하기
+
+### Postman 실행
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/5a6613e1-04a4-4440-b531-54c22b70c775)
 
 ### Swagger 추가
 - build.gradle
@@ -532,6 +564,8 @@ public class SwaggerConfig {
 ```
 ### Swagger 접속하기
 - http://localhost:8080/swagger-ui/index.html#
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/3e4648b2-a964-4280-a6f6-bcaa72689aad)
+
 
 ## 게시판 구현
 ### Thymeleaf 추가
