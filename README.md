@@ -882,11 +882,16 @@ public class BoardController {
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/41d0ed2a-5d47-4019-860a-acabf0c9403d)
 
 ### 이후 해야 할 일
-- 로그인 관리
-- 권한 관리
-- 예외 처리
-- Page 처리
-- backend 와 frontend 분리 (React, Vuejs, Angular)
+- [ ] 로그인 관리
+- [ ] 권한 관리
+- [ ] 예외 처리
+- [ ] Page 처리
+- [ ] backend 와 frontend 분리 (React, Vuejs, Angular)
+- [ ] 어플리케이션 빌드 및 서버 배포하기
+- [ ] CI/CD 구현하기
+- [ ] 모니터링 툴 적용
+- [ ] Dockerizing
+- [ ] k8s 구현하기
 
 ## SW 개발/운영 
 - [X] SW 기획자 : 어떤 SW를 만들 것인가?
