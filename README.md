@@ -274,7 +274,7 @@ BUILD SUCCESSFUL in 4s
 오후 9:50:11: Execution finished 'bootRun'.
 ```
 ### H2 DataBase 접속하기
-- [http://localhost:8080/h2-console](#http://localhost:8080/h2-console)
+- http://localhost:8080/h2-console
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/106c2228-79ae-4217-9302-67f4d7388f69)
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/e3b5c9dd-c098-49c6-a6d1-0f274278489a)
 - SQL 기초
