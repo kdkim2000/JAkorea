@@ -872,3 +872,31 @@ public class BoardController {
 </html>
 ```
 
+### 최종기능 테스트
+
+- 게시판 조회 : http://localhost:8080/board/list
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/76a95391-5a99-4eca-9990-126b7ce9a578)
+- 새 게시글 쓰기 : "쓰기" 버튼 클릭
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/90d7c4a9-f5b4-412e-b40c-d06843effe8b)
+- 기존 게시글 수정 : "title" 링크 클릭
+- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/41d0ed2a-5d47-4019-860a-acabf0c9403d)
+
+### 이후 해야 할 일
+- 로그인 관리
+- 권한 관리
+- 예외 처리
+- Page 처리
+- backend 와 frontend 분리 (React, Vuejs, Angular)
+
+## SW 개발/운영 
+- [X] SW 기획자 : 어떤 SW를 만들 것인가?
+- [X] SW 구조 설계자 : 어떤 SW Architecture 를 사용할 것인가?
+- [X] DBAdmin : 데이터를 어떻게 설계하고 관리할 것인가?
+- [X] SW backend 개발자 : 로직을 어떻게 구현할 것인가?
+- [X] SW frontend 개발자  : 어떻게 화면을 구현할 것인가?
+- [X] Web Designer : 어떤 UX를 활용하여 설계할 것인가?
+- [X] SW 운영자 : 운영을 위해 어떤 프로세스로 관리할 것인가?
+- [X] 클라우드 운영자 : 클라우드 환경에서 SW를 어떻게 운용할 것인가?
+- [X] 알고리즘 개발자 : 어떤 알고리즘으로 로직을 구현할 것인가?
+- [X] 빅데이터 전문가 : 어떤 데이터에 의미를 부여하고 분석할 것인가?
+
