@@ -212,6 +212,8 @@ package com.samsung.sds.study.member;
 import javax.persistence.*;
 
 @Entity
+@Setter
+@Getter
 public class Member {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
