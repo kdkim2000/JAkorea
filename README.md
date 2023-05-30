@@ -138,7 +138,14 @@ There was an unexpected error (type=Not Found, status=404).
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/71262e49-7913-4494-9a85-2569f679dff2)
 
 ## Database 기초 (SQL)
-[◀️](#-멘토링-운영-계획)
+### DBMS 종류
+- 출처 : https://velog.io/@98kimjh/Database-NoSQL-Concept
+- ![image](https://velog.velcdn.com/images%2F98kimjh%2Fpost%2Fd8f6888a-ddc4-43be-9815-960418436691%2Fimage.png)
+
+### RDB 종류
+- 출처 : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=goottceo&logNo=221404636153
+- ![image](https://mblogthumb-phinf.pstatic.net/MjAxODExMjNfMTU1/MDAxNTQyOTUzMzYzMzI5.Yran0cXpkY6RxKFej-5bXdapA4ccRIrJMYADV8y3WCsg.Stcnr_lTiRqEKvV0-PedDFjjpQNPZhtTuIp7rdN2FDcg.JPEG.goottceo/DB%EC%A2%85%EB%A5%98.JPG?type=w800)
+
 ### Database 설치하기
 - build.gradle
 - [x] **pring Data JPA** : Persist data in SQL stores with Java Persistence API using Spring Data and Hibernate.
