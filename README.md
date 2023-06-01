@@ -146,6 +146,16 @@ There was an unexpected error (type=Not Found, status=404).
 - 출처 : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=goottceo&logNo=221404636153
 - ![image](https://mblogthumb-phinf.pstatic.net/MjAxODExMjNfMTU1/MDAxNTQyOTUzMzYzMzI5.Yran0cXpkY6RxKFej-5bXdapA4ccRIrJMYADV8y3WCsg.Stcnr_lTiRqEKvV0-PedDFjjpQNPZhtTuIp7rdN2FDcg.JPEG.goottceo/DB%EC%A2%85%EB%A5%98.JPG?type=w800)
 
+|  DB | Contents |
+| --- | --- |
+| IBM DB2 Driver |  A JDBC driver that provides access to IBM DB2. |
+| H2 Database |  Provides a fast in-memory database that supports JDBC API and R2DBC access, with a small (2mb) footprint. Supports embedded and server modes as well as a browser based console application. |
+| MariaDB Driver | MariaDB JDBC and R2DBC driver. |
+| MS SQL Server Driver | A JDBC and R2DBC driver that provides access to Microsoft SQL Server and Azure SQL Database from any Java application. |
+| MySQL Driver | MySQL JDBC driver. |
+| Oracle Driver | A JDBC driver that provides access to Oracle. |
+| PostgreSQL Driver | A JDBC and R2DBC driver that allows Java programs to connect to a PostgreSQL database using standard, database independent Java code. |
+
 ### Database 설치하기
 - build.gradle
 - [x] **pring Data JPA** : Persist data in SQL stores with Java Persistence API using Spring Data and Hibernate.
