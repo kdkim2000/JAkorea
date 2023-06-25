@@ -414,13 +414,11 @@ git push
 ## Backend 구현
 
 ### Frontend vs Backend
-
 ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/eec46a7e-83a7-4179-b5e6-ec3507fffabe)
 - Frontend : 사용자에게 시각적으로 보여지는 부분, 사용자로부터 다양한 형태의 입력을 받는다.
 - Backend : 사용자에게 드러나지 않는 부분, 비즈니스 로직처리를 담당한다.
 
 ### MVC 패턴
-
 ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/1ef1c9ee-f2f1-44d8-9e2d-6ddb9d898eb5)
 - 모델-뷰-컨트롤러(model–view–controller, MVc)는 소프트웨어 공학에서 사용되는 소프트웨어 디자인 패턴이다.
 - 이 패턴을 성공적으로 사용하면, 사용자 인터페이스로부터 비즈니스 로직을 분리하여 애플리케이션의 시각적 요소나 그 이면에서 실행되는 비즈니스 로직을 서로 영향 없이 쉽게 고칠 수 있는 애플리케이션을 만들 수 있다.
@@ -439,35 +437,9 @@ git push
 ```java
 package com.samsung.sds.study.member;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface MemberRepository extends JpaRepository<Member, Long> {
-}
-```
-### REST API Design Guide
-- URI는 정보의 자원를 표현해야 한다.
-- resource는 동사보다는 명사를, 대문자보다는 소문자를 사용한다.
-- 자원에 대한 행위는 HTTP Method (GET, POST, PUT, DELETE)로 표현한다.
-- URI에 HTTP Method가 들어가면 안된다.
-- URI에 행위에 대한 동사 표현이 들어가면 안된다.
-- 경로 부분 중 변하는 부분은 유일한 값으로 대체한다.
-- 슬래시 구분자(/ )는 계층 관계를 나타내는데 사용한다.
-- URI 마지막 문자로 슬래시(/ )를 포함하지 않는다.
-- URI에 포함되는 모든 글자는 리소스의 유일한 식별자로 사용되어야 하며 URI가 다르다는 것은 리소스가 다르다는 것이고, 역으로 리소스가 다르면 URI도 달라져야 한다.
-- 하이픈(- )은 URI 가독성을 높이는데 사용할 수 있다.
-- 밑줄( _ )은 URI에 사용하지 않는다.
-- URI 경로에는 소문자가 적합하다.
-- URI 경로에 대문자 사용은 피하도록 한다.
-- 파일 확장자는 URI에 포함하지 않는다.
-
-### REST API HTTP Methods
-
-| Method | 설명 |
-| --- |--- |
-| GET | 읽어 오기 |
-| POST | 입력 하기 |
-| PUT | 변경 하기 |
-| DELETE | 삭제하기 |
+i기 |
+| @HeaderParam | Header로 전달하기 |
+| @RequestBody | 본문에 실어 보내 |
 
 ### Controller
 - src/main/java/com/samsung/sds/study/member/MemberRestController.java
