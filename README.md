@@ -15,7 +15,7 @@
 |3주차 |	[Database 기초 (SQL)](#Database-기초-SQL) | 
 |4주차 |	[Github로 소스 관리](#Github로-소스-관리)   | 
 |5주차 |	[Backend 구현/실행(1)](#Backend-구현) |
-|6주차 |	[Backend 구현/실행(2)](#swagger-추가)  |
+|6주차 |	[Backend 구현/실행(2)](#swagger-ui)  |
 |7주차 |	[게시판 만들기(1)](#게시판-구현) |
 |8주차 |	[게시판 만들기(2)](#Thymeleaf-를-이용하여-View-와-Controller-연결)  |
 
@@ -552,6 +552,11 @@ public class MemberRestController {
 ### Postman 실행
 - ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/5a6613e1-04a4-4440-b531-54c22b70c775)
 
+### Swagger UI
+- [https://swagger.io/tools/swagger-ui](https://swagger.io/tools/swagger-ui/)
+- Swagger UI란 Swagger 제품군 중 API Documentation과 관련된 기능을 제공하는 제품이다.
+- ```Swagger UI allows anyone — be it your development team or your end consumers — to visualize and interact with the API’s resources without having any of the implementation logic in place. It’s automatically generated from your OpenAPI (formerly known as Swagger) Specification, with the visual documentation making it easy for back end implementation and client side consumption.
+```
 ### Swagger 추가
 - build.gradle
 ```groovy
