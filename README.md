@@ -555,7 +555,10 @@ public class MemberRestController {
 ### Swagger UI
 - [https://swagger.io/tools/swagger-ui](https://swagger.io/tools/swagger-ui/)
 - Swagger UI란 Swagger 제품군 중 API Documentation과 관련된 기능을 제공하는 제품이다.
-- ```Swagger UI allows anyone — be it your development team or your end consumers — to visualize and interact with the API’s resources without having any of the implementation logic in place. It’s automatically generated from your OpenAPI (formerly known as Swagger) Specification, with the visual documentation making it easy for back end implementation and client side consumption.
+```Swagger UI allows anyone — be it your development team or your end consumers — to visualize and interact with the API’s resources without having any of the implementation logic in place. It’s automatically generated from your OpenAPI (formerly known as Swagger) Specification, with the visual documentation making it easy for back end implementation and client side consumption.
+```
+```
+Swagger UI를 사용하면 개발 팀이든 엔드 유저든 누구나 구현 로직 없이도 API 리소스를 시각화하고 상호 작용할 수 있도록 도와줍니다. Swagger는 OpenAPI (이전 Swagger) 사양으로 자동 생성되며 시각적 문서를 통해 백엔드 구현 및 클라이언트 측 사용을 쉽게 할 수 있게 합니다.
 ```
 ### Swagger 추가
 - build.gradle
