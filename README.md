@@ -15,7 +15,7 @@
 |3주차 |	[Database 기초 (SQL)](#Database-기초-SQL) | 
 |4주차 |	[Github로 소스 관리](#Github로-소스-관리)   | 
 |5주차 |	[Backend 구현/실행(1)](#Backend-구현) |
-|6주차 |	[Backend 구현/실행(2)](#swagger-알아보기)  |
+|6주차 |	[Backend 구현/실행(2)](#swagger-추가)  |
 |7주차 |	[게시판 만들기(1)](#게시판-구현) |
 |8주차 |	[게시판 만들기(2)](#Thymeleaf-를-이용하여-View-와-Controller-연결)  |
 
