@@ -412,22 +412,28 @@ git push
 ```
 
 ## Backend 구현
+
 ### Frontend vs Backend
-- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/eec46a7e-83a7-4179-b5e6-ec3507fffabe)
+
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/eec46a7e-83a7-4179-b5e6-ec3507fffabe)
 - Frontend : 사용자에게 시각적으로 보여지는 부분, 사용자로부터 다양한 형태의 입력을 받는다.
 - Backend : 사용자에게 드러나지 않는 부분, 비즈니스 로직처리를 담당한다.
+
 ### MVC 패턴
-- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/1ef1c9ee-f2f1-44d8-9e2d-6ddb9d898eb5)
+
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/1ef1c9ee-f2f1-44d8-9e2d-6ddb9d898eb5)
 - 모델-뷰-컨트롤러(model–view–controller, MVc)는 소프트웨어 공학에서 사용되는 소프트웨어 디자인 패턴이다.
 - 이 패턴을 성공적으로 사용하면, 사용자 인터페이스로부터 비즈니스 로직을 분리하여 애플리케이션의 시각적 요소나 그 이면에서 실행되는 비즈니스 로직을 서로 영향 없이 쉽게 고칠 수 있는 애플리케이션을 만들 수 있다.
 - 모델은 애플리케이션의 정보(데이터)를 나타낸다
 - 뷰는 텍스트, 체크박스 항목 등과 같은 사용자 인터페이스 요소를 나타낸다.
 - 컨트롤러는 데이터와 비즈니스 로직 사이의 상호동작을 관리한다.
+
 ### Class 설계
-- ![image](https://github.com/kdkim2000/JAkorea/assets/26553219/5344d69d-10b4-4580-8ec5-8972ed969bec)
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/0476b58b-666d-4a84-bb48-ec6e31283f1d)
 - Backend 를 구현하고 Frontend는 분리하여 개발한다 (React, Angular, Vue.js 등)
 - Backend를 구현하고 확인을 위해 Postman 도구를 활용한다
 - Swagger를 적용하여 backend를 확인할 수 있다
+
 ### JPA 를 활용한 CRUD
 - src/main/java/com/samsung/sds/study/member/MemberRepository.java
 ```java
