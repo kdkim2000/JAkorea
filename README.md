@@ -722,6 +722,44 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 }
 ```
 
+### Board RestController 추가
+- src/main/java/com/samsung/sds/study/board/BoardRestController.java
+```java
+package com.samsung.sds.study.board;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/board")
+public class BoardRestController {
+    @Autowired
+    BoardRepository boardRepository;
+
+    @GetMapping("/list")
+    public List<Board> getBoards() {
+        List<Board> boards = boardRepository.findAll();
+        return boards;
+    }
+    @GetMapping("/form")
+    public Board getBoard(@RequestParam(required = false) Long id) {
+        Board board;
+        if(id == null){
+            board = new Board();
+        }else{
+            board = boardRepository.findById(id).orElse(null);
+        }
+        return board;
+    }
+    @PostMapping("/form")
+    public Board boardSubmit(@RequestBody Board board) {
+        return boardRepository.save(board);
+    }
+}
+```
+
 ### Board 를 위한 화면 추가
 - 화면 Design 을 위해 BootStrap 활용
 - https://getbootstrap.com/
