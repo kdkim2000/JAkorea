@@ -646,6 +646,7 @@ spring.thymeleaf.enabled=true
 spring.thymeleaf.prefix=classpath:/templates/
 spring.thymeleaf.suffix=.html
 ```
+![image](https://github.com/kdkim2000/JAkorea/assets/26553219/92a96f06-6e12-49c4-86af-449110547b8a)
 ### html page 만들기 
 - src/main/resources/templates/index.html
 ```html
