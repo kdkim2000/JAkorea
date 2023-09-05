@@ -860,76 +860,6 @@ print("{0:#b}".format(N))
 0o21
 0b10001
 ```
-```python
-print("Best","python","course", sep="**")
-```
-```text
-Best**python**course
-```
-```python
-name="Jun"
-tall = 185
-print("Name:",name +", Tall:",tall)
-```
-```text
-Name: Jun, Tall: 185
-```
-```python
-print("Jun is my friend.")
-print("He is smart")
-```
-```text
-Jun is my friend.
-He is smart
-```
-```python
-print("Jun is my friend.", end="")
-print("He is smart")
-```
-```text
-Jun is my friend.He is smart
-```
-```python
-print("%d"%10)
-print("%d %s"%(10, " 정수 형태 입니다."))
-print("{0} {1} {2}".format(1, 2, 3))
-```
-```text
-10
-10  정수 형태 입니다.
-1 2 3
-```
-```python
-r=5
-pi=3.141592
-print("반지름:%d, 원주율:%f" %(r, pi))
-```
-```text
-반지름:5, 원주율:3.141592
-```
-```python
-cellphone_0="test1"
-cellphone_1="test2"
-cellphone_2="test3"
-
-print("cellphone : {0}". format(cellphone_0))
-print("cellphone : {0} {1} {2}". format(cellphone_0, cellphone_1, cellphone_2))
-print("cellphone : {2} {1} {2}". format(cellphone_0, cellphone_1, cellphone_2))
-print("cellphone : {} {} {}". format(cellphone_0, cellphone_1, cellphone_2))
-```
-```text
-cellphone : test1
-cellphone : test1 test2 test3
-cellphone : test3 test2 test3
-cellphone : test1 test2 test3
-```
-```python
-a=1.1223123128731923891829
-print("{0:.2f}, {0:.5f}".format(a))
-```
-```text
-1.12, 1.12231
-```
 - 형식출력 방법 4
 ```python
 #방법1
@@ -1002,6 +932,151 @@ C:\김경덕\Python
 PineApple
 Red ApplPine
 Red Apple	Pine
+```
+```python
+print("Best","python","course", sep="**")
+```
+```text
+Best**python**course
+```
+```python
+name="Jun"
+tall = 185
+print("Name:",name +", Tall:",tall)
+```
+```text
+Name: Jun, Tall: 185
+```
+```python
+print("Jun is my friend.")
+print("He is smart")
+```
+```text
+Jun is my friend.
+He is smart
+```
+```python
+print("Jun is my friend.", end="")
+print("He is smart")
+```
+```text
+Jun is my friend.He is smart
+```
+```python
+print("%d"%10)
+print("%d %s"%(10, " 정수 형태 입니다."))
+print("{0} {1} {2}".format(1, 2, 3))
+```
+```text
+10
+10  정수 형태 입니다.
+1 2 3
+```
+```python
+r=5
+pi=3.141592
+print("반지름:%d, 원주율:%f" %(r, pi))
+```
+```text
+반지름:5, 원주율:3.141592
+```
+```python
+cellphone_0="test1"
+cellphone_1="test2"
+cellphone_2="test3"
+
+print("cellphone : {0}". format(cellphone_0))
+print("cellphone : {0} {1} {2}". format(cellphone_0, cellphone_1, cellphone_2))
+print("cellphone : {2} {1} {2}". format(cellphone_0, cellphone_1, cellphone_2))
+print("cellphone : {} {} {}". format(cellphone_0, cellphone_1, cellphone_2))
+```
+```text
+cellphone : test1
+cellphone : test1 test2 test3
+cellphone : test3 test2 test3
+cellphone : test1 test2 test3
+```
+```python
+a=1.1223123128731923891829
+print("{0:.2f}, {0:.5f}".format(a))
+```
+```text
+1.12, 1.12231
+```
+```python
+# 은행 대기 순번표
+#001, 002, 003
+for num in range(1, 11):
+    print("대기번호 :" + str(num))
+    print("대기번호 :" + str(num).zfill(3))
+```
+```text
+대기번호 :1
+대기번호 :001
+대기번호 :2
+대기번호 :002
+대기번호 :3
+대기번호 :003
+대기번호 :4
+대기번호 :004
+대기번호 :5
+대기번호 :005
+대기번호 :6
+대기번호 :006
+대기번호 :7
+대기번호 :007
+대기번호 :8
+대기번호 :008
+대기번호 :9
+대기번호 :009
+대기번호 :10
+대기번호 :010
+```
+```python
+# 빈 자리는 빈공간으로 두고, 오른쪽 정렬을 하되, 총 10자리 공간을 확보
+print("{0: >10}".format(500))
+
+# # 양수는 + 표시, 음수일 떈 - 로 표시
+print("{0: >+10}".format(500))
+print("{0: >+10}".format(-500))
+
+# # 왼쪽 정렬하고, 빈칸으로 _로 채움
+print("{0:_<+10}".format(500))
+
+# # 3자리 마다 콤마 찍어주기
+print("{0:,}".format(500000000000))
+# # 3자리 마다 콤마 찍어주기, +- 
+print("{0:+,}".format(500000000000))
+print("{0:+,}".format(-500000000000))
+# # 3자리 마다 콤마 찍어주기, 부호 붙이기, 자리수 확보, 빈자리는 ^ 로 채우기
+print("{0:^<+30,}".format(500000000000))
+
+# # 소수점 출력
+print("{0:f}".format(5/3))
+# # 소수점 특정 자리수 까지만 표시 (소수점 3자리에서 반올림)
+print("{0:.2f}".format(5/3))
+```
+```text
+       500
+      +500
+      -500
++500______
+500,000,000,000
++500,000,000,000
+-500,000,000,000
++500,000,000,000^^^^^^^^^^^^^^
+1.666667
+1.67
+```
+```python
+scores = {"수학":0, "영어":50, "코딩":100}
+for subject, score in scores.items():
+    print(subject.ljust(4), str(score).rjust(4), sep=":")
+```
+```text
+수학  :   0
+영어  :  50
+코딩  : 100
 ```
 
 ### 키보드 입력
@@ -1369,6 +1444,8 @@ True
 True
 Hello java a java python python
 ```
+
+
 ## 모듈
 ### 모듈이란
 ### 모듈 사용법
