@@ -478,7 +478,7 @@ dict1["나이"] = 21
 print(dict1)
 ```
 ```text
-{'성별': '남자', '취미': ['파이선', 'AI']}
+{'성별': '남자', '나이': 21, '취미': ['파이선', 'AI']}
 ```
 - 카 삭제하기
 ```python
@@ -521,6 +521,26 @@ dict_items([('성별', '남자'), ('나이', 20), ('취미', ['파이선', 'AI']
 ## 제어문
 
 ### 조건문(if)
+
+- 비교연산자
+
+| 비교연산자 | 의미 |
+| --- | --- |
+| < | 작다
+| > | 크다
+| <= | 작거나 같다
+| >= | 크거나 같다
+| == | 같다
+| != | 같지 않다
+
+- 논리연산자
+
+| 논리연산자 | 활용예 | 내용 |
+| --- | --- | --- |
+| 논리곱(and) | A and B | A와 B 둘다 참일 떄만 참
+| 논리합(or) | A or B | A와 B 중 한 개발도 참일 경우 참
+| 논리부정(not) | not A | A가 참이면 거짓, 거짓이면 참
+
 ```python
 if <조건문>:
     <코드블록1>
@@ -530,19 +550,27 @@ else:
     <코드블록3>
 ```
 ```python
+score = int(input("점수를 입력하세요:"))
+if score >= 60:
+    print("통과")
+else:
+     print("과락")
 ```
 ```text
+점수를 입력하세요:70
+통과
+점수를 입력하세요:50
+과락
 ```
 ### 반복문(for)
 ```python
 for <반복변수> in < 반복범위>:
     <코드블록>
-range(start, stop, step)
 ```
+- range(start, stop, step)
 ```python
 for <반복변수> in < 반복범위>:
     <코드블록>
-range(start, stop, step)
 ```
 ```python
 for i in range(10):
@@ -597,4 +625,319 @@ i= 5
 i= 8
 ```
 ### 반복문(while)
+```python
+i=1
+while(i<8):
+    print(" "*i,"*"*(8-i))
+    i += 2
+```
+```text
+  *******
+    *****
+      ***
+        *
+```
 ### 반복문제어
+- break
+- continue
+
+### 간단한 한줄 for 문
+```python
+[<반복 실행문> for <반복변수> in <반복범위>]
+```
+```python
+[<반복 실행문> for <반복변수> in <반복범위> if<조건문>]
+```
+
+## 입력 과 출력
+
+### 화면출력
+
+- 형식지정
+
+```python
+N=4
+print("{0:4d}".format(N))
+print("{0:04d}".format(N))
+N=12
+print("{0:>4d}".format(N))
+N=0.123456
+print("{0:.4f}".format(N))
+N=123456000
+print("{0:,}".format(N))
+N=0.4789
+print("{0:.2%}".format(N))
+N=95700000000
+print("{0:.3e}".format(N))
+N=17
+print("{0:#x}".format(N))
+print("{0:#o}".format(N))
+print("{0:#b}".format(N))
+```
+```text
+   4
+0004
+  12
+0.1235
+123,456,000
+47.89%
+9.570e+10
+0x11
+0o21
+0b10001
+```
+```python
+print("Best","python","course", sep="**")
+```
+```text
+Best**python**course
+```
+```python
+print("Jun is my friend.", end="")
+print("He is smart")
+```
+```text
+Jun is my friend.He is smart
+```
+### 키보드 입력
+```python
+data=input("문자열")
+```
+### 파일 읽고 쓰기
+| mode | 내용 |
+| --- | --- |
+| r | 읽기, default |
+| w | 쓰기 같은 파일 내용을 지우고 덮어쓰기|
+| x | 쓰기, 같은 파일 존재시 오류 발생 |
+| a | 쓰기, 같은 파일 존재시 추가, 없으면 쓰기 |
+| b | 바이러리 파일 모드 |
+| t | 텍스트 파일 모드 |
+
+```python
+f=open('file_name','mode')
+```
+```python
+f=open('file_name','w')
+f.write(str)
+f.close()
+```
+```python
+f=open('file_name','r')
+data=f.read()
+f.close()
+```
+### with를 이용한 파일 읽고 쓰기
+```python
+with open('file_name','mode') as f:
+    <코드블록>
+```
+```python
+with open('file_name','w') as f:
+    f.write(str)
+```
+```python
+with open('file_name','r') as f:
+    data=f.read()
+```
+
+## 함수
+
+### 함수의 구조
+```python
+def 함수이름([인자1, 인자2, ....,인자n]):
+    <코드블록>
+    [return <반환 값>]
+```
+### 람다(lambda) 함수
+```python
+lambda<인자> : <인자 활용 수행 코드>
+```
+
+## 객체와 클래스
+### 클래스 선언과 객체 생성
+```python
+class 클래스명():
+    [변수1]
+    [변수2]
+    ...
+    def 함수1(self[,인자1, 인자2, ...,안자n]):
+        <코드블록>
+        ...
+    def 함수2(self[,인자1, 인자2, ...,안자n]):
+        <코드블록>
+        ...
+```
+### 클래스 상속
+```python
+class 자식클래스명(부모 클래스 이름):
+    <코드블록>
+        ...
+```
+
+## 문자열과 텍스트
+### 문자열 분리
+```python
+str.split([sep,] maxsplit=숫자)
+```
+```python
+str="에스프레소 아메리카노 카페라데 카푸치노"
+print(str.split())
+print(str.split(" ",2))
+```
+```text
+['에스프레소', '아메리카노', '카페라데', '카푸치노']
+['에스프레소', '아메리카노', '카페라데 카푸치노']
+```
+### 공백제거
+```python
+str="[  에스프레소  아메리카노  카페라데 카푸치노]  "
+print(str.strip())
+```
+```text
+[  에스프레소  아메리카노  카페라데 카푸치노]
+```
+### 문자열 합치기
+```python
+str_list=["부산광역시","남구","용소로","14번길10"]
+print(" ".join(str_list))
+print("-".join(str_list))
+```
+```text
+부산광역시 남구 용소로 14번길10
+부산광역시-남구-용소로-14번길10
+```
+### 문자열 함수
+```python
+str="Hello python a python python python"
+search_str="python"
+prefix="python"
+print(str.find(search_str, 10))
+print(str.count(search_str))
+print(str.startswith(prefix,0))
+print(str.startswith("Hello",0))
+print(str.endswith(prefix,0))
+print(str.replace(search_str,"java",2))
+```
+```text
+15
+4
+False
+True
+True
+Hello java a java python python
+```
+## 모듈
+### 모듈이란
+### 모듈 사용법
+```python
+import 모듈명
+from 모듈명 import 변수명
+from 모듈명 import 함수명
+from 모듈명 import 클래스명
+from 모듈명 import *
+import 모듈명 as 별명
+from 모듈명 import 변수명 as 별명
+from 모듈명 import 함수명 as 별명
+from 모듈명 import 클래스명 as 별명
+```
+### 내장모듈
+- random
+```python
+import random
+print(random.random())
+print(random.randint(1,6))
+print(random.randrange(0,10,2))
+print(random.choice([1,2,3]))
+print(random.choice(["사과","배","복숭아"]))
+print(random.sample(["사과","배","복숭아","포도"],2))
+print(random.sample(range(1,10),2))
+```
+```text
+0.9857213195381337
+2
+2
+2
+사과
+['사과', '포도']
+[9, 6]
+```
+- datetime
+```python
+import datetime
+print(datetime.timedelta(days=5, hours=17, minutes=30))
+print(datetime.date.today())
+print(datetime.date(2019, 12, 25))
+```
+```text
+5 days, 17:30:00
+2023-09-05
+2019-12-25
+```
+- calendar
+```python
+import calendar
+print(calendar.calendar(2023))
+```
+```text
+                                  2023
+
+      January                   February                   March
+Sa Su Mo Tu We Th Fr      Sa Su Mo Tu We Th Fr      Sa Su Mo Tu We Th Fr
+    1  2  3  4  5  6                   1  2  3                   1  2  3
+ 7  8  9 10 11 12 13       4  5  6  7  8  9 10       4  5  6  7  8  9 10
+14 15 16 17 18 19 20      11 12 13 14 15 16 17      11 12 13 14 15 16 17
+21 22 23 24 25 26 27      18 19 20 21 22 23 24      18 19 20 21 22 23 24
+28 29 30 31               25 26 27 28               25 26 27 28 29 30 31
+
+       April                      May                       June
+Sa Su Mo Tu We Th Fr      Sa Su Mo Tu We Th Fr      Sa Su Mo Tu We Th Fr
+ 1  2  3  4  5  6  7             1  2  3  4  5                      1  2
+ 8  9 10 11 12 13 14       6  7  8  9 10 11 12       3  4  5  6  7  8  9
+15 16 17 18 19 20 21      13 14 15 16 17 18 19      10 11 12 13 14 15 16
+22 23 24 25 26 27 28      20 21 22 23 24 25 26      17 18 19 20 21 22 23
+29 30                     27 28 29 30 31            24 25 26 27 28 29 30
+
+        July                     August                  September
+Sa Su Mo Tu We Th Fr      Sa Su Mo Tu We Th Fr      Sa Su Mo Tu We Th Fr
+ 1  2  3  4  5  6  7                1  2  3  4                         1
+ 8  9 10 11 12 13 14       5  6  7  8  9 10 11       2  3  4  5  6  7  8
+15 16 17 18 19 20 21      12 13 14 15 16 17 18       9 10 11 12 13 14 15
+22 23 24 25 26 27 28      19 20 21 22 23 24 25      16 17 18 19 20 21 22
+29 30 31                  26 27 28 29 30 31         23 24 25 26 27 28 29
+...
+21 22 23 24 25 26 27      18 19 20 21 22 23 24      16 17 18 19 20 21 22
+28 29 30 31               25 26 27 28 29 30         23 24 25 26 27 28 29
+                                                    30 31
+```
+
+```python
+print(calendar.month(2023,9))
+print(calendar.monthrange(2023,9))
+print(calendar.firstweekday())
+calendar.setfirstweekday(5)
+print(calendar.firstweekday())
+print(calendar.weekday(2023,9,5))
+print(calendar.isleap(2023))
+print(calendar.isleap(2024))
+print(calendar.isleap(2025))
+print(calendar.isleap(2026))
+```
+```text
+September 2023
+Sa Su Mo Tu We Th Fr
+                   1
+ 2  3  4  5  6  7  8
+ 9 10 11 12 13 14 15
+16 17 18 19 20 21 22
+23 24 25 26 27 28 29
+30
+
+(4, 30)
+5
+5
+1
+False
+True
+False
+False
+```
