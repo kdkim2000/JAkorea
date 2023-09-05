@@ -774,6 +774,24 @@ while(i<4):
 ### 반복문제어
 - break
 - continue
+```python
+absent = [2 ,4]
+no_book = [7]
+for student in range(1, 11):
+    if student in absent:
+        continue
+    elif student in no_book:
+        print("오늘 수업은 여기까지. {0}은 교무실로 따라와".format(student))
+        break
+    print("{0}, 책을 읽어 보세요".format(student))
+```
+```text
+1, 책을 읽어 보세요
+3, 책을 읽어 보세요
+5, 책을 읽어 보세요
+6, 책을 읽어 보세요
+오늘 수업은 여기까지. 7은 교무실로 따라와
+```
 
 ### 간단한 한줄 for 문
 ```python
