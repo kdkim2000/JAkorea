@@ -699,6 +699,79 @@ print("He is smart")
 ```text
 Jun is my friend.He is smart
 ```
+```python
+#방법1
+print("나는 %d살 입니다." % 20)
+print("나는 %s를 좋아해요" % "파이썬")
+print("Apple 은 %c로 시작해요" % "A")
+print("나는 %s살 입니다." % 20)
+print("나는 %s색과 %s 색을 좋아해요" % ("파란","빨간"))
+```
+```text
+나는 20살 입니다.
+나는 파이썬를 좋아해요
+Apple 은 A로 시작해요
+나는 20살 입니다.
+나는 파란색과 빨간 색을 좋아해요
+```
+```python
+#방법2
+print("나는 {}살 입니다.".format(20))
+print("나는 {}색과 {} 색을 좋아해요" .format("파란","빨간"))
+print("나는 {0}색과 {1} 색을 좋아해요" .format("파란","빨간"))
+print("나는 {1}색과 {0} 색을 좋아해요" .format("파란","빨간"))
+```
+```text
+나는 20살 입니다.
+나는 파란색과 빨간 색을 좋아해요
+나는 파란색과 빨간 색을 좋아해요
+나는 빨간색과 파란 색을 좋아해요
+```
+```python
+#방법3
+print("나는 {age}살이며, {color} 색을 좋아해요".format(age=20, color="빨간"))
+```
+```text
+나는 20살이며, 빨간 색을 좋아해요
+```
+```python
+#방법4 (v3.6 이상)
+age = 20
+color = "빨간"
+print(f"나는 {age}살이며, {color} 색을 좋아해요")
+```
+```text
+나는 20살이며, 빨간 색을 좋아해요
+```
+```python
+#\n \" 
+print("백문의 불여일견\n백견이 불여일타")
+print("저도 \"나도코딩\" 입니다.")
+print("저도 \'나도코딩\' 입니다.")
+print('저도 "나도코딩" 입니다.')
+#\\
+print("C:\\김경덕\\Python")
+print("C:\김경덕\Python")
+#\r
+print("Red Apple\rPine")
+#\b
+print("Red Apple\bPine")
+#\t
+print("Red Apple\tPine")
+```
+```text
+백문의 불여일견
+백견이 불여일타
+저도 "나도코딩" 입니다.
+저도 '나도코딩' 입니다.
+저도 "나도코딩" 입니다.
+C:\김경덕\Python
+C:\김경덕\Python
+PineApple
+Red ApplPine
+Red Apple	Pine
+```
+
 ### 키보드 입력
 ```python
 data=input("문자열")
@@ -725,6 +798,98 @@ f.close()
 f=open('file_name','r')
 data=f.read()
 f.close()
+```
+```python
+f=open("file.txt","w")
+f.write("This is my first time")
+f.close()
+```
+```python
+!type file.txt
+```
+```text
+This is my first time
+```
+```python
+f=open("file.txt","r")
+file_text=f.read()
+f.close()
+print(file_text)
+```
+```text
+This is my first time
+```
+```python
+f=open("file2.txt","w")
+for num in range(6):
+    format_string="2x{0}={1}\n".format(num, num*2)
+    f.write(format_string)
+f.close()
+```
+```python
+!type file2.txt
+```
+```text
+2x0=0
+2x1=2
+2x2=4
+2x3=6
+2x4=8
+2x5=10
+```
+```python
+f=open("file2.txt")
+line=f.readline()
+while line:
+    print(line, end="")
+    line=f.readline()
+f.close()
+```
+```text
+2x0=0
+2x1=2
+2x2=4
+2x3=6
+2x4=8
+2x5=10
+```
+```python
+f=open("file2.txt")
+lines=f.readlines()
+f.close()
+print(lines)
+```
+```text
+['2x0=0\n', '2x1=2\n', '2x2=4\n', '2x3=6\n', '2x4=8\n', '2x5=10\n']
+```
+```python
+f=open("file2.txt")
+lines=f.readlines()
+f.close()
+for line in lines:
+    print(line,end="")
+```
+```text
+2x0=0
+2x1=2
+2x2=4
+2x3=6
+2x4=8
+2x5=10
+```
+```python
+f=open("file2.txt")
+for line in f.readlines():
+    print(line,end="")
+f.close()
+```
+```text
+2x0=0
+2x1=2
+2x2=4
+2x3=6
+2x4=8
+2x5=10
 ```
 ### with를 이용한 파일 읽고 쓰기
 ```python
