@@ -1255,6 +1255,20 @@ print(random.sample(range(1,10),2))
 ['사과', '포도']
 [9, 6]
 ```
+```python
+from random import *
+users = range(1, 20)
+print(users)
+users = list(users)
+print(users)
+shuffle(users)
+print(users)
+```
+```text
+range(1, 20)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+[16, 19, 11, 17, 7, 4, 5, 6, 2, 10, 15, 14, 13, 3, 9, 12, 1, 8, 18]
+```
 - datetime
 ```python
 import datetime
