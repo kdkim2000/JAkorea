@@ -323,7 +323,38 @@ print(list9)
 ['황의조', '조규성', '이강인', '이강인', '김영권', '김승규']
 []
 ```
+```python
+solarsys = ['태양','수성','금성','지구','화성','목성','토성','천왕성','해왕성','명왕성']
+print(solarsys)
+del solarsys[-1]
+print(solarsys)
 
+solarsys = ['태양','수성','금성','지구','화성','목성','토성','천왕성','해왕성','명왕성']
+del solarsys[1:7]
+print(solarsys)
+```
+```text
+['태양', '수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '해왕성', '명왕성']
+['태양', '수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '해왕성']
+['태양', '천왕성', '해왕성', '명왕성']
+```
+```python
+solarsys = ['태양','수성','금성','지구','화성','목성','토성','천왕성','해왕성','명왕성']
+moon = solarsys.index('지구')
+solarsys.insert(moon,'달')
+print(solarsys)
+solarsys = ['태양','수성','금성','지구','화성','목성','토성','천왕성','해왕성','명왕성']
+solarsys.extend('헬리혜성')
+print(solarsys)
+solarsys = ['태양','수성','금성','지구','화성','목성','토성','천왕성','해왕성','명왕성']
+solarsys.extend(['헬리혜성'])
+print(solarsys)
+```
+```text
+['태양', '수성', '금성', '달', '지구', '화성', '목성', '토성', '천왕성', '해왕성', '명왕성']
+['태양', '수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '해왕성', '명왕성', '헬', '리', '혜', '성']
+['태양', '수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '해왕성', '명왕성', '헬리혜성']
+```
 ### 튜플
 - 튜플은 () 를 이용하여 생성
 - 튜플은 생선된 요소를 변경하거나 삭제가 불가함
@@ -631,18 +662,85 @@ i= 4
 i= 5
 i= 8
 ```
-### 반복문(while)
 ```python
-i=1
-while(i<8):
-    print(" "*i,"*"*(8-i))
-    i += 2
+print(list(range(10)))
 ```
 ```text
-  *******
-    *****
-      ***
-        *
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+```python
+print(list(range(0,20,5)))
+```
+```text
+[0, 5, 10, 15]
+```
+```python
+print(list(range(-10,0, 2)))
+```
+```text
+[-10, -8, -6, -4, -2]
+```
+```python
+x_list=['x1','x2']
+y_list=['y2','y2']
+print("X,Y")
+for x in x_list:
+    for y in y_list:
+        print(x,y)
+```
+```text
+X,Y
+x1 y2
+x1 y2
+x2 y2
+x2 y2
+```
+```python
+x=0
+y=0
+print("x,y")
+while(y<20):
+    x+=1
+    y+=x
+    print(x,y)
+```
+```text
+x,y
+1 1
+2 3
+3 6
+4 10
+5 15
+6 21
+```
+
+### 반복문(while)
+```python
+a=0
+while True:
+    a+=1
+    if(a>5):
+        break
+    print(a)
+```
+```text
+1
+2
+3
+4
+5
+```
+```python
+i=0
+while(i<4):
+    print(" "*i,"*"*(7-i*2))
+    i += 1
+```
+```text
+ *******
+  *****
+   ***
+    *
 ```
 ### 반복문제어
 - break
@@ -656,6 +754,28 @@ while(i<8):
 [<반복 실행문> for <반복변수> in <반복범위> if<조건문>]
 ```
 
+```python
+n=[1,3,5,7,9]
+s=[]
+for i in n:
+    s.append(i**2)
+    print(s)
+```
+```text
+[1]
+[1, 9]
+[1, 9, 25]
+[1, 9, 25, 49]
+[1, 9, 25, 49, 81]
+```
+```python
+n=[1,3,5,7,9]
+s=[i**2 for i in n if i>=5]
+print(s)
+```
+```text
+[25, 49, 81]
+```
 ## 입력 과 출력
 
 ### 화면출력
@@ -700,12 +820,70 @@ print("Best","python","course", sep="**")
 Best**python**course
 ```
 ```python
+name="Jun"
+tall = 185
+print("Name:",name +", Tall:",tall)
+```
+```text
+Name: Jun, Tall: 185
+```
+```python
+print("Jun is my friend.")
+print("He is smart")
+```
+```text
+Jun is my friend.
+He is smart
+```
+```python
 print("Jun is my friend.", end="")
 print("He is smart")
 ```
 ```text
 Jun is my friend.He is smart
 ```
+```python
+print("%d"%10)
+print("%d %s"%(10, " 정수 형태 입니다."))
+print("{0} {1} {2}".format(1, 2, 3))
+```
+```text
+10
+10  정수 형태 입니다.
+1 2 3
+```
+```python
+r=5
+pi=3.141592
+print("반지름:%d, 원주율:%f" %(r, pi))
+```
+```text
+반지름:5, 원주율:3.141592
+```
+```python
+cellphone_0="test1"
+cellphone_1="test2"
+cellphone_2="test3"
+
+print("cellphone : {0}". format(cellphone_0))
+print("cellphone : {0} {1} {2}". format(cellphone_0, cellphone_1, cellphone_2))
+print("cellphone : {2} {1} {2}". format(cellphone_0, cellphone_1, cellphone_2))
+print("cellphone : {} {} {}". format(cellphone_0, cellphone_1, cellphone_2))
+```
+```text
+cellphone : test1
+cellphone : test1 test2 test3
+cellphone : test3 test2 test3
+cellphone : test1 test2 test3
+```
+```python
+a=1.1223123128731923891829
+print("{0:.2f}, {0:.5f}".format(a))
+```
+```text
+1.12, 1.12231
+```
+- 형식출력 방법 4
 ```python
 #방법1
 print("나는 %d살 입니다." % 20)
@@ -782,6 +960,21 @@ Red Apple	Pine
 ### 키보드 입력
 ```python
 data=input("문자열")
+```
+```python
+num=input("1-100 사이 숫자를 입력하세요")
+print("당신이 입력한 숫자는 {} 입니다.".format(num))
+```
+```text
+당신이 입력한 숫자는 10 입니다.
+```
+```python
+num=input("1-100 사이 숫자를 입력하세요")
+area=int(num)**2
+print("당신이 입력한 숫자의 제곱은 {} 입니다.".format(area))
+```
+```text
+당신이 입력한 숫자의 제곱은 100 입니다.
 ```
 ### 파일 읽고 쓰기
 | mode | 내용 |
