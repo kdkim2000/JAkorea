@@ -1160,6 +1160,137 @@ def 함수이름([인자1, 인자2, ....,인자n]):
     <코드블록>
     [return <반환 값>]
 ```
+```python
+def open_account():
+    print("새로운 계좌가 생성되었습니다.")
+
+open_account()
+
+def deposit(balance, money):
+    print("입금이 완료되었습니다.. 잔액은 {0} 원 입니다".format(balance+money))
+    return balance + money
+
+def withdraw(balance, money):
+    if balance >= money:
+        print("출금이 완료되었습니다. 잔액은 {0} 원입니다.".format(balance-money))
+        return balance-money
+    else:
+        print("출금이 완료 되지 않았습니다. 잔액은 {0} 원입니다.".format(balance))
+        return balance
+    
+def withdraw_night(balance, money):
+    commission = 100
+    return commission, balance - money - commission
+balance = 0
+balance = deposit(balance, 1000)
+print(balance)
+balance = deposit(balance, 2000)
+print(balance)
+balance = withdraw(balance, 500)
+print(balance)
+comcommission, balance = withdraw_night(balance, 500)
+print("수수료는 {0} 원이고 잔액은{1} 입니다.".format(comcommission, balance))
+```
+```text
+새로운 계좌가 생성되었습니다.
+입금이 완료되었습니다.. 잔액은 1000 원 입니다
+1000
+입금이 완료되었습니다.. 잔액은 3000 원 입니다
+3000
+출금이 완료되었습니다. 잔액은 2500 원입니다.
+2500
+수수료는 100 원이고 잔액은1900 입니다.
+```
+```python
+def profile(name, age=17, main_lang="파이썬"):
+    print("이름 : {0}\t나이 : {1}\t주 사용 언어 : {2}"\
+          .format(name, age, main_lang))
+profile(name="유재석", age=20, main_lang="자바")
+profile(name="박명수", main_lang="파이썬", age=25)
+profile("김태호")
+```
+```text
+이름 : 유재석	나이 : 20	주 사용 언어 : 자바
+이름 : 박명수	나이 : 25	주 사용 언어 : 파이썬
+이름 : 김태호	나이 : 17	주 사용 언어 : 파이썬
+```
+```python
+def profile(name, age, lang1, lang2, lang3, lang4, lang5):
+    print("이름 : {0}\t나이 : {1}\t".format(name, age), end=" ")
+    print( lang1, lang2, lang3, lang4, lang5)
+profile("유재석", 20, "Python", "Java", "C", "C++", "C#")
+profile("김태호", 25, "Python", "Java", "", "", "")
+```
+```text
+이름 : 유재석	나이 : 20	 Python Java C C++ C#
+이름 : 김태호	나이 : 25	 Python Java 
+```
+```python
+def profile(name, age, *language):
+    print("이름 : {0}\t나이 : {1}\t".format(name, age), end=" ")
+    for lang in language:
+        print(lang, end=" ")
+    print()
+profile("유재석", 20, "Python", "Java", "C", "C++", "C#", "SQL")
+profile("김태호", 25, "Python", "Java")
+```
+```text
+이름 : 유재석	나이 : 20	 Python Java C C++ C# SQL 
+이름 : 김태호	나이 : 25	 Python Java 
+```
+```python
+gun = 10
+
+def checkpoint(soldiers):
+    global gun #전역 공간에 있는 gun 사용
+    gun = gun - soldiers
+    print("[함수내] 남은 총 :{0}".format(gun))
+
+print("전체 총 : {0}".format(gun))
+checkpoint(2)
+print("남은 총 : {0}".format(gun))
+
+def checkpoint_ret(gun, soldiers):
+    gun = gun - soldiers
+    print("[함수내] 남은 총 :{0}".format(gun))
+    return gun
+
+print("전체 총 : {0}".format(gun))
+gun = checkpoint_ret(gun, 2)
+print("남은 총 : {0}".format(gun))
+```
+```text
+전체 총 : 10
+[함수내] 남은 총 :8
+남은 총 : 8
+전체 총 : 8
+[함수내] 남은 총 :6
+남은 총 : 6
+```
+```python
+# 표준 체중을 구하는 프로그램
+# 남자 : 키 * 키 * 22
+# 여자 : 키 * 키 * 21
+# 조건1 : 표준 체중은 별도의 함수 내에서 계산
+# 함수명 : std_weight
+# 전달값 : 키(height), 성별(gender)
+# 조건2 : 표준 체중은 소수점 둘째자리까지 표시
+# 출력예시 : 키 175cm 남자의 표준 체중은 67.38kg 입니다.
+
+def std_weight(height, gender):
+    if gender == "남자":
+        return height / 100 * height / 100 * 22
+    else:
+        return height / 100 * height / 100 * 21
+    
+height = 175
+gender = "남자"
+weight = round(std_weight(height, gender),2)
+print("키 {0}cm {1}의 표준 체중은 {2}kg 입니다.".format(height, gender, weight))
+```
+```text
+키 175cm 남자의 표준 체중은 67.38kg 입니다.
+```
 ### 람다(lambda) 함수
 ```python
 lambda<인자> : <인자 활용 수행 코드>
@@ -1286,6 +1417,37 @@ print(users)
 range(1, 20)
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 [16, 19, 11, 17, 7, 4, 5, 6, 2, 10, 15, 14, 13, 3, 9, 12, 1, 8, 18]
+```
+```python
+#####################################################
+#조건1 : 승객별 운행 소요 시간은 5~50분 사아의 난수로 정해짐
+#조건2 : 당신은 소요 시간 5~15분 사이의 승객만 매칭해야 합니다.
+# [o] 1번째 손님(소요시간 : 15분)
+# [ ] 1번째 손님(소요시간 : 50분)
+# [o] 1번째 손님(소요시간 : 5분)
+
+from random import *
+cnt = 0
+for i in range(1,10):
+    time = randrange(5, 31)
+    if 5 <= time <= 15:
+        print("[O] {0} 번째 손님 (소요시간 : {1}분)".format(i, time))
+        cnt += 1
+    else:
+        print("[ ] {0} 번째 손님 (소요시간 : {1}분)".format(i, time))
+print("탐승승객 :{0}".format(cnt))
+```
+```text
+[O] 1 번째 손님 (소요시간 : 9분)
+[O] 2 번째 손님 (소요시간 : 5분)
+[O] 3 번째 손님 (소요시간 : 9분)
+[ ] 4 번째 손님 (소요시간 : 25분)
+[ ] 5 번째 손님 (소요시간 : 22분)
+[O] 6 번째 손님 (소요시간 : 9분)
+[O] 7 번째 손님 (소요시간 : 14분)
+[ ] 8 번째 손님 (소요시간 : 30분)
+[ ] 9 번째 손님 (소요시간 : 20분)
+탐승승객 :5
 ```
 - datetime
 ```python
