@@ -1454,8 +1454,142 @@ True
 True
 Hello java a java python python
 ```
+```python
+str1="된장찌개,김치,두부,돈까스"
+str1.split(",")
+```
+```text
+['된장찌개', '김치', '두부', '돈까스']
+```
+```python
+"   된장찌개 \n김치 두부\n돈까스".split(" ")
+```
+```text
+['', '', '', '된장찌개', '\n김치', '두부\n돈까스']
+```
 
+```python
+"   된장찌개 \n김치 두부\n돈까스".split()
+```
+```text
+['된장찌개', '김치', '두부', '돈까스']
+```
 
+```python
+phone_number = "+82-10-1234-1223"
+list1= phone_number.split("-",1)
+print("전화번호{}".format(list[1]))
+```
+```text
+전화번호list[1]
+```
+
+```python
+temp = "aaaabBbbbbaaBB".strip("a")
+temp
+```
+```text
+'bBbbbbaaBB'
+```
+
+```python
+str1="aaaabBbbbbaaBB"
+temp=str1.strip("ab")
+temp
+```
+```text
+'BbbbbaaBB'
+```
+
+```python
+str1="#@!#$!$#!$!Python!!@!##!@!#"
+temp=str1.strip("!@#$")
+temp
+```
+```text
+'Python'
+```
+
+```python
+str1="     Python    "
+temp=str1.strip(" ")
+temp
+```
+```text
+'Python'
+```
+
+```python
+str1="     Python \n \n  "
+temp=str1.strip(" ")
+temp
+```
+```text
+'Python \n \n'
+```
+
+```python
+str1="     Python \n \n  "
+temp=str1.strip()
+temp
+```
+```text
+'Python'
+```
+
+```python
+address=["서울시","성동구","길동"]
+print(" ".join(address))
+print("^^*".join(address))
+```
+```text
+서울시 성동구 길동
+서울시^^*성동구^^*길동
+```
+
+```python
+str1="I love Python ."
+str1.find("Python")
+```
+```text
+7
+```
+
+```python
+str1="I love Python Python Python Python."
+print(str1.find("Python",14, 30))
+print(str1.find("Python",8))
+print(str1.find("Python",-1))
+```
+```text
+14
+14
+-1
+```
+
+```python
+str1="I love Python Python Python Python"
+print("str1.replace()="+str1.replace(" ","^^"))
+print("str1.replace()="+str1.replace(" ","^^",2))
+print(str1)
+print(str1.isalpha())
+print(str1.isdigit())
+print(str1.isalnum())
+print(str1.isspace())
+print(str1.isupper())
+print(str1.islower())
+```
+```text
+str1.replace()=I^^love^^Python^^Python^^Python^^Python
+str1.replace()=I^^love^^Python Python Python Python
+I love Python Python Python Python
+False
+False
+False
+False
+False
+False
+```
 ## 모듈
 ### 모듈이란
 ### 모듈 사용법
