@@ -137,7 +137,7 @@ True
 ```python
 print("'\"'를 활용한 String 형식")
 print('\'를 활용한 String 형식')
-str="String 형식입니다."
+str1="String 형식입니다."
 print(str)
 ```
 ```text
@@ -680,7 +680,7 @@ i= 6
 i= 8
 ```
 ```python
-list=[1,2,4,5,8]
+list1=[1,2,4,5,8]
 for i in list:
     print("i=",i)
 ```
@@ -710,8 +710,8 @@ print(list(range(-10,0, 2)))
 [-10, -8, -6, -4, -2]
 ```
 ```python
-x_list=['x1','x2']
-y_list=['y2','y2']
+x_list1=['x1','x2']
+y_list1=['y2','y2']
 print("X,Y")
 for x in x_list:
     for y in y_list:
@@ -1405,12 +1405,12 @@ class 자식클래스명(부모 클래스 이름):
 ## 문자열과 텍스트
 ### 문자열 분리
 ```python
-str.split([sep,] maxsplit=숫자)
+str1.split([sep,] maxsplit=숫자)
 ```
 ```python
-str="에스프레소 아메리카노 카페라데 카푸치노"
-print(str.split())
-print(str.split(" ",2))
+str1="에스프레소 아메리카노 카페라데 카푸치노"
+print(str1.split())
+print(str1.split(" ",2))
 ```
 ```text
 ['에스프레소', '아메리카노', '카페라데', '카푸치노']
@@ -1418,15 +1418,15 @@ print(str.split(" ",2))
 ```
 ### 공백제거
 ```python
-str="[  에스프레소  아메리카노  카페라데 카푸치노]  "
-print(str.strip())
+str1="[  에스프레소  아메리카노  카페라데 카푸치노]  "
+print(str1.strip())
 ```
 ```text
 [  에스프레소  아메리카노  카페라데 카푸치노]
 ```
 ### 문자열 합치기
 ```python
-str_list=["부산광역시","남구","용소로","14번길10"]
+str_list1=["부산광역시","남구","용소로","14번길10"]
 print(" ".join(str_list))
 print("-".join(str_list))
 ```
@@ -1436,15 +1436,15 @@ print("-".join(str_list))
 ```
 ### 문자열 함수
 ```python
-str="Hello python a python python python"
-search_str="python"
+str1="Hello python a python python python"
+search_str1="python"
 prefix="python"
-print(str.find(search_str, 10))
-print(str.count(search_str))
-print(str.startswith(prefix,0))
-print(str.startswith("Hello",0))
-print(str.endswith(prefix,0))
-print(str.replace(search_str,"java",2))
+print(str1.find(search_str, 10))
+print(str1.count(search_str))
+print(str1.startswith(prefix,0))
+print(str1.startswith("Hello",0))
+print(str1.endswith(prefix,0))
+print(str1.replace(search_str,"java",2))
 ```
 ```text
 15
