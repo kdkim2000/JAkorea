@@ -741,8 +741,9 @@ print(popped_item)    #' apple'
 fruits = ["apple", "banana", "cherry"]
 for fruit in fruits:
     print(fruit)
-이와 같은 기능들 덕분에 리스트는 파이썬에서 가장 널리 사용되는 데이터 구조 중 하나입니다.
 ```
+이와 같은 기능들 덕분에 리스트는 파이썬에서 가장 널리 사용되는 데이터 구조 중 하나입니다.
+
 ## 6.4 튜플:
 튜플(tuple)은 리스트와 비슷하지만 변경할 수 없습니다(즉, 불변입니다).
 
@@ -1133,12 +1134,12 @@ print(my_set )      #Output : {1 ,2 ,3 ,4}
 ```python
 my_set={1 ,2 ,"a" ,"b"}
 my_list=list( my_set )
-print( myList )       #Output :[ 'b' ,'a' ,'c' ,'d'] 
+print( my_list )       #Output :[ 'b' ,'a' ,'c' ,'d'] 
 ```
 세트(set을 튜플로 변환):tuple()함수를 사용한다.
 ```python
-myTuple=tuple( MySet )
-print( MyTuple )      #Output :( 'b' ,'a' ,'c' ,'d')
+myTuple=tuple( my_set )
+print( myTuple )      #Output :( 'b' ,'a' ,'c' ,'d')
 ```
 이와 같이 파이썬의 내장 함수들을 활용하면 서로 다른 데이터 타입 간의 쉽게 변환이 가능합니다.
 
