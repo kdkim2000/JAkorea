@@ -141,9 +141,9 @@ H2 Header
 <h1>H1 Header </hi>
 <h2>H2 Header </hi>
 ```
-```
+
 해시(#) 기호를 이용한 방식은 6개 까지의 서로 다른 크기로 표현할 수 있어서 더 유연하지만, 밑줄을 사용하는 방식은 보다 명확하게 제목과 내용을 구분할 수 있다는 장점이 있습니다.
-```
+
 
 ## 2.2 단락 (Paragraphs)
 
@@ -163,7 +163,9 @@ This is another paragraph. It also has two sentences.
 
 <p>This is another paragraph. It also has two sentences.</p>
 ```
-Markdown에서는 단락 내부에 있는 개행(newline)은 그대로 개행으로 처리되지 않습니다. 즉, Markdown에서 줄 바꿈을 위해선 실제로 두 번의 개행(엔터 키 두 번)이 필요합니다.
+Markdown에서는 단락 내부에 있는 개행(newline)은 그대로 개행으로 처리되지 않습니다. 
+
+즉, Markdown에서 줄 바꿈을 위해선 실제로 두 번의 개행(엔터 키 두 번)이 필요합니다.
 
 만약 한 줄 바꿈만으로도 실제 출력 결과에 반영하고 싶다면, 문장 끝에 공백(space) 두 개를 추가하면 됩니다:
 
@@ -191,18 +193,19 @@ And this is the second line.
 ``````
 위 코드는 아래와 같이 HTML로 변환됩니다:
 
-html
+```html
 <p>This is the first line.<br>
 And this is the second line.</p>
 ```
-빈 줄을 사용: 빈 줄(empty line)을 사용하여 새 단락(paragraph)을 생성하면, 그 결과는 시각적으로 새 줄에서 시작하는 텍스트와 비슷합니다.
+### 빈 줄을 사용
+빈 줄(empty line)을 사용하여 새 단락(paragraph)을 생성하면, 그 결과는 시각적으로 새 줄에서 시작하는 텍스트와 비슷합니다.
 예시:
 
 ```markdown
 This is the first paragraph.
 
 And this is the second paragraph.
-``````
+```
 위 코드는 아래와 같이 HTML로 변환됩니다:
 
 ```html
