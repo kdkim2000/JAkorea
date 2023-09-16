@@ -1717,7 +1717,7 @@ print(Student.count)   # 출력: 2
 # Chapter 11: 파이썬 모듈과 패키지
 
 ## 11.1 모듈 
-### 11.1.1 모듈이란?
+### 모듈이란?
 모듈은 파이썬 코드를 논리적으로 구성하는 기본 단위입니다. 간단히 말해, 모듈은 관련된 함수, 클래스, 변수 등을 하나의 .py 파일에 저장한 것입니다. 이렇게 하면 코드의 재사용성을 높일 수 있으며, 다른 사람들과 쉽게 공유할 수 있습니다.
 
 예를 들어 greetings.py라는 이름의 파일을 만들고 다음과 같이 코드를 작성해봅시다.
@@ -1732,7 +1732,7 @@ def say_goodbye(name):
 ```
 위에서 greetings.py라는 이름의 모듈을 만들었습니다. 이 모듈에는 say_hello와 say_goodbye라는 두 개의 함수가 정의되어 있습니다.
 
-### 11.1.2 모듈 사용하기
+### 모듈 사용하기
 만든 모듈을 사용하려면 import 키워드를 사용합니다.
 
 ```python
@@ -1756,6 +1756,7 @@ say_hello("Jane")   # 출력: 안녕하세요, Jane님!
 | math | 수학적인 연산을 위한 함수들을 제공. 제곱근, 로그, 삼각함수, 상수 파이 등의 기능이 있음. |
 | datetime | 날짜와 시간 관련 기능을 제공. 현재 날짜 및 시간 정보를 가져오거나 특정 날짜 및 시간의 차이를 계산하는 데 유용함. |
 | os | 운영체제와 상호작용하는 여러 가지 기능을 제공. 디렉터리 생성/삭제/변경, 환경 변수 접근 등의 작업에 사용됨. |
+| random | 난수(랜덤한 수)를 생성하는데 사용됩니다. 이 모듈은 다양한 함수를 제공하여 다양한 방식으로 난수를 생성하거나 선택할 수 있습니다. |
 ### math
 파이썬의 math 모듈은 수학적인 연산을 위한 다양한 함수와 상수를 제공합니다. 이 모듈을 사용하면 복잡한 수학적 계산을 쉽게 처리할 수 있습니다.
 
@@ -1817,7 +1818,7 @@ print("sqrt(16):",math.sqrt(math.pow(x, y)))       # 출력 : "sqrt(16)":4
 
 아래 표에서 datetime 모듈의 주요 클래스와 메서드에 대해 자세히 알아보겠습니다:
 
-| 클래스/메서드 | 설명 |
+| 함수 | 설명 |
 |---|---|
 | `datetime.date` | 그레고리안 달력을 사용하여 연, 월, 일로 날짜를 표현합니다. |
 | `datetime.time` | 하루 중의 시간을 표현하며, 시(hour), 분(minute), 초(second), 마이크로초(microsecond) 및 선택적으로 타임존 정보를 저장합니다. |
@@ -1881,10 +1882,10 @@ print("두 날짜 사이의 차이는 {}일입니다.".format(diff.days))
 | `os.chdir(path)` | 작업 디렉토리를 주어진 경로로 변경합니다. |
 | `os.listdir(path)` | 주어진 경로에 있는 파일과 디렉토리 목록을 반환합니다. |
 | `os.mkdir(path)` | 주어진 경로에 새 디렉토리를 생성합니다. 이미 해당 경로에 같은 이름의 파일이나 디렉토리가 있다면 에러가 발생합니다.|
-|"`os.makedirs(path)`" 	|"재귀적으로 폴더를 생성하며, 중간 단계의 폴더가 없으면 그것도 함께 만듭니다."|
-|"`os.rmdir(path)`"|"주어진 경로에 있는 디렉토리를 삭제 합니다."|
-|"`os.removedirs(path)`"|"재귀적으로 폴더를 삭제하며, 중간 단계의 폴더도 함께 삭제됩니다."|
-|"`os.rename(src,dst)`"|"src라는 이름의 파일 또는 폴더 이름을 dst라는 이름으로 바꿉니다."|
+|`os.makedirs(path)`	|재귀적으로 폴더를 생성하며, 중간 단계의 폴더가 없으면 그것도 함께 만듭니다.|
+|`os.rmdir(path)`|주어진 경로에 있는 디렉토리를 삭제 합니다.|
+|`os.removedirs(path)`|재귀적으로 폴더를 삭제하며, 중간 단계의 폴더도 함께 삭제됩니다.|
+|`os.rename(src,dst)`|src라는 이름의 파일 또는 폴더 이름을 dst라는 이름으로 바꿉니다.|
 
 
 
@@ -1930,6 +1931,56 @@ os.rename('new_directory', 'renamed_directory')  # 'new_directory'를 'renamed_d
 print(os.listdir('.'))  # 이름이 바뀐 폴더가 포함된 파일 및 하위 디렉토리 목록 출력 
 ```
 위 코드들은 기본적인 os 모듈의 기능을 보여줍니다. 실제 사용 시에는 경로나 폴더명 등을 실제 환경에 맞게 수정해야 합니다.
+
+### random
+
+파이썬의 random 모듈은 난수(랜덤한 수)를 생성하는데 사용됩니다. 이 모듈은 다양한 함수를 제공하여 다양한 방식으로 난수를 생성하거나 선택할 수 있습니다.
+
+random(): 0.0 이상 1.0 미만의 부동소수점 실수를 랜덤하게 반환합니다.
+```python
+import random
+
+print(random.random()) 
+``` 
+randint(a, b): a와 b 사이의 정수 중에서 랜덤하게 하나를 선택하여 반환합니다 (a와 b 포함).
+```python
+import random
+
+print(random.randint(1, 10))  
+```
+choice(seq): 주어진 시퀀스(seq)에서 랜덤하게 하나의 요소를 선택하여 반환합니다.
+```python
+import random
+
+fruits = ['apple', 'banana', 'cherry']
+print(random.choice(fruits))  
+```
+shuffle(seq): 주어진 시퀀스(seq)의 순서를 무작위로 섞습니다 (원본 리스트가 변경됩니다).
+```python
+import random
+
+numbers = [1, 2, 3, 4, 5]
+random.shuffle(numbers)
+print(numbers) 
+```
+sample(population, k): 주어진 집단(population)에서 k 개의 요소를 중복 없이 뽑아 리스트로 반환합니다.
+```python
+import random
+
+numbers = [1, 2, 3, 4, 5]
+print(random.sample(numbers, 3)) 
+```
+random 모듈은 게임을 만들거나 통계적인 실험을 할 때 유용하게 사용할 수 있습니다.
+
+| 함수 | 설명 | 예제 |
+| --- | --- | --- |
+| `random()` | 0.0 이상 1.0 미만의 부동소수점 실수를 랜덤하게 반환합니다. | `random.random()` -> `0.37444887175646646` |
+| `randint(a, b)` | a와 b 사이의 정수 중에서 랜덤하게 하나를 선택하여 반환합니다 (a와 b 포함). | `random.randint(1, 10)` -> `7` |
+| `uniform(a, b)` | a와 b 사이의 부동소수점 실수 중에서 랜덤하게 하나를 선택하여 반환합니다 (a와 b 포함). | `random.uniform(1, 10)` -> `9.18075535574525` |
+| `choice(seq)` | 주어진 시퀀스(seq)에서 랜덤하게 하나의 요소를 선택하여 반환합니다.   | ```fruits = ['apple', 'banana', 'cherry']```<br>`random.choice(fruits)` -> `'banana'`|
+| `shuffle(seq)`  	| 주어진 시퀀스(seq)의 순서를 무작위로 섞습니다 (원본 리스트가 변경됩니다).   	| ```numbers = [1, 2, 3, 4, 5]```<br>`random.shuffle(numbers)`<br>`print(numbers) # [3,2,5,4,1] or other random sequence`|
+| `sample(population,k )`  	| 주어진 집단(population)에서 k 개의 요소를 중복 없이 뽑아 리스트로 반환합니다.| ```numbers = [1, 2, 3, 4 ,5]```<br>`print(random.sample(numbers ,3)) # [2 ,5 ,4] or other random combination of three numbers from the list numbers.`|
+
 
 ## 11.3 폐키지
 
