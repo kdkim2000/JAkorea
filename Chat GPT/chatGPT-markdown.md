@@ -102,6 +102,13 @@ Markdown에서 헤더를 작성하는 방법은 두 가지가 있습니다:
 ##### h5
 ###### h6
 ```
+# h1
+## h2
+### h3
+#### h4
+##### h5
+###### h6
+
 위 코드는 아래와 같이 변환됩니다:
 
 ```html
@@ -124,6 +131,10 @@ H1 Header
 H2 Header 
 ---
 ```
+H1 Header 
+===
+H2 Header 
+---
 위 코드는 아래와 같이 변환됩니다:
 
 ```html
@@ -138,7 +149,7 @@ H2 Header
 
 Markdown에서 단락(Paragraphs)은 매우 간단하게 생성할 수 있습니다. 일반적으로, 단락은 하나 이상의 연속된 텍스트 줄입니다. 단락을 분리하려면 하나 이상의 빈 줄을 사용합니다.
 
-예를 들어, 다음과 같이 Markdown을 작성하면:
+예를 들어, 다음과 같이 Markdown을 작성하면
 
 ```markdown
 This is a paragraph. It has two sentences.
@@ -171,6 +182,7 @@ And this line will be right below the previous one.</p>
 Markdown에서 줄바꿈(Line Breaks)을 생성하는 방법은 두 가지입니다:
 
 두 개의 공백: 문장의 끝에 공백(space) 두 개를 추가하면 그 다음에 오는 텍스트는 새로운 줄에서 시작됩니다.
+
 예시:
 
 ```markdown
@@ -265,6 +277,10 @@ Markdown에서는 순서 있는 목록과 순서 없는 목록을 모두 생성�
 2. Second item
 3. Third item
 ```
+1. First item
+2. Second item
+3. Third item
+
 위 코드는 아래와 같이 HTML로 변환됩니다:
 
 ```html
@@ -543,7 +559,12 @@ function helloWorld() {
 
 예시(Python):
 
-markdown
+<pre>
+```python
+def hello_world():
+    print("Hello, world!")
+```
+</pre>
 ```python
 def hello_world():
     print("Hello, world!")
