@@ -1,7 +1,7 @@
 # GhatGPT로 만든 초보자를 위한 파이썬 배우기
 ---
-![](./images/ChatGPT_logo.png) 
-```
+![](https://openai.com/favicon.ico) 
+```text
 초보자를 위한 파이썬 교재를 만들려고 하는데 쳅터를 10개로 나누어 목차를 표로 만들어 줘
 ```
 ---
@@ -28,7 +28,7 @@
 
 
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 초보자에게  "파이썬 소개와 설치하기" 내용을 설명할 수 있도록 예를 포함하여 설명서를 작성해 줘
 ```
@@ -95,7 +95,7 @@ Visual Studio Code(VS Code)는 Microsoft에서 제공하는 무료 코드 에디
 
 
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 위 파이썬 교재 목차에서 "파이썬의 변수" 에 대해 초보자가 이해할 수 있도록 설명서를 예제를 포함하여 작성해 줘
 ```
@@ -164,7 +164,7 @@ print(x)
 
 변수는 프로그래밍에서 중요한 개념입니다. 다양한 연산을 수행하거나 함수를 호출할 때 매개변수로 사용될 수 있으며, 계산 결과를 저장하는 데도 사용됩니다. 다음 챕터에서는 파이썬에서 제공하는 기본적인 연산자와 조건문, 반복문 등의 제어 흐름 도구에 대해 알아보겠습니다.
 
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 위 파이썬 교재 목차에서 "파이썬의 연산자" 에 대해 초보자가 이해할 수 있도록 설명서를 예제를 포함하여 작성해 줘
 ```
@@ -246,7 +246,7 @@ print( x <=y )    # True
 다음 챕터에서는 이러한 연산자들을 활용하여 프로그램의 흐름을 제어하는 방법에 대해 배워보겠습니다.
 
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 위의 "파이썬의 조건문과 반복문" 에 대해 초보자가 이해할 수 있도록 예제를 포함하여 설명해줘. 
 ```
@@ -297,7 +297,7 @@ else:
 위 코드에서 'age가 최소한18' 이고 'money 가 최소한5000'인 경우에만 충분히 들어갈 수 있다고 출력됩니다.
 
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 "챕터 4: 파이썬의 조건문과 반복문" 에서 "파이썬의 반복문" 을 "챕터 5" 로 분리하여 초보자가 이해할 수 있도록 다시 정리해 줘
 ```
@@ -432,7 +432,7 @@ print(positive_numbers)
 리스트 컴프리헨션은 파이썬 코드를 간결하게 작성할 수 있게 해주며 빠른 실행 속도 또한 장점으로 꼽혀집니다.
 
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 "파이썬의 자료형" 에 대해 초보자가 이해할 수 있도록 예제를 포함하여 설명해 줘. 이떄 내용을 "챕터 6" 으로 정리해 줘
 ```
@@ -1143,7 +1143,7 @@ print( MyTuple )      #Output :( 'b' ,'a' ,'c' ,'d')
 이와 같이 파이썬의 내장 함수들을 활용하면 서로 다른 데이터 타입 간의 쉽게 변환이 가능합니다.
 
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 "파이썬의 함수의 이해와 활용" 에 대해 초보자가 이해할 수 있도록 쉽게 예제를 포함하여 "Chapter 7" 로 작성해 줘
 ```
@@ -1250,7 +1250,7 @@ print(sorted_numbers) # Output: [1, 2, 4, 6]
 여기서 'key' 인자에 주어진 람다함수는 리스트 내부의 각 요소에 적용되며 이 결과 값으로 정렬 기준을 잡습니다. 따라서 위 코드에서 숫자들은 제곱값이 작은 순으로 정렬됩니다.
 
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 "파이썬의 파일 입출력과 예외 처리" 에 대해 초보자가 이해할 수 있도록 쉽게 예제를 포함하여 "Chapter 8" 로 작성해 줘
 ```
@@ -1378,7 +1378,7 @@ with open('example.txt', 'a') as f:
 위 코드는 example.txt 파일 마지막 부분에 '\nThis is an additional line.' 이라는 텍스트를 추가합니다.
 
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 " 파이썬의 예외 처리" 에 대해 초보자가 잘 이해 할 수 있도록 예제를 포함하여 설명해 줘
 ```
@@ -1443,7 +1443,7 @@ if age < 0:
 | `TypeError` 	| 연산이나 함수가 부적절한 형태의 객체에 적용될 때 일어납니다.
 | `ValueError` 	| 연산이나 함수가 올바른 형태인데도 부적절한 값을 가진 객체로 인해 일어납니다.
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 "파이쎤의 클래스와 객체지향 프로그래밍" 에 대해 초보자가 이해할 수 있도록 예제를 포함하여 설명해 줘
 ```
@@ -1680,7 +1680,7 @@ print(Student.count)   # 출력: 2
 위 코드에서 Student.count 는 생성된 Student 객체의 개수를 나타내며 모든 Student 객체에 대해 같은 값을 공유합니다.
 
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 "파이썬 모듈과 패키지" 에 대해 초보자가 이해할 수 있도록 예제를 포함하여 "Chapter 11" 로 정리해 줘
 ```
@@ -1980,7 +1980,7 @@ bird.fly()
 파이썬의 패키지는 코드를 체계적으로 관리하고 재사용하기 위한 방법입니다. 이를 통해 큰 프로젝트에서도 코드를 쉽게 관리하고 유지보수할 수 있습니다.
 
 ---
-![](./images/ChatGPT_logo.png) 
+![](https://openai.com/favicon.ico) 
 ```
 "파이썬 데이터 분석을 위한 라이브러리 (numpy, pandas)" 에 대해 초보자가 쉽게 이해할 수 있도록 예제를 포함하여 설명해 줘
 ```
