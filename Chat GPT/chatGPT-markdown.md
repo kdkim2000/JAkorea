@@ -183,7 +183,8 @@ And this line will be right below the previous one.</p>
 ## 2.3 줄바꿈 (Line Breaks)
 Markdown에서 줄바꿈(Line Breaks)을 생성하는 방법은 두 가지입니다:
 
-두 개의 공백: 문장의 끝에 공백(space) 두 개를 추가하면 그 다음에 오는 텍스트는 새로운 줄에서 시작됩니다.
+### 두 개의 공백
+문장의 끝에 공백(space) 두 개를 추가하면 그 다음에 오는 텍스트는 새로운 줄에서 시작됩니다.
 
 예시:
 
@@ -199,6 +200,7 @@ And this is the second line.</p>
 ```
 ### 빈 줄을 사용
 빈 줄(empty line)을 사용하여 새 단락(paragraph)을 생성하면, 그 결과는 시각적으로 새 줄에서 시작하는 텍스트와 비슷합니다.
+
 예시:
 
 ```markdown
