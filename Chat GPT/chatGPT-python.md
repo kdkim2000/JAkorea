@@ -1423,10 +1423,22 @@ finally:
 ## 9.4 예외 발생시키기
 프로그램에서 직접적으로 예외를 발생시키려면, 'raise' 키워드를 사용합니다.
 ```python
-age = -1
+class ValueErrorHandling(Exception):
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
 
-if age < 0:
-    raise ValueError("Age cannot be negative")
+try:
+    # 예외가 발생할 수 있는 코드
+    raise ValueError("Invalid value!")
+
+except ValueError as e:
+    # ValueError를 처리하는 코드
+    print("ValueError occurred:", str(e))
+    
+except Exception as e:
+    # 다른 모든 예외를 처리하는 코드
+    print("An error occurred:", str(e))
 ```
 위와 같은 방식으로 파이썬에서는 다양한 예외처리 기법들을 제공하며, 이들은 프로그램의 안정성과 신뢰성을 높여줍니다.
 
@@ -1725,11 +1737,25 @@ print(Student.count)   # 출력: 2
 
 ```python
 # greetings.py
+# greetings.py
+
 def say_hello(name):
     print(f"안녕하세요, {name}님!")
 
 def say_goodbye(name):
     print(f"안녕히 가세요, {name}님!")
+
+greetings = """
+def say_hello(name):
+    print(f"안녕하세요, {name}님!")
+
+def say_goodbye(name):
+    print(f"안녕히 가세요, {name}님!")
+"""
+
+f=open("greetings.py","w")
+f.write(greetings)
+f.close()
 ```
 위에서 greetings.py라는 이름의 모듈을 만들었습니다. 이 모듈에는 say_hello와 say_goodbye라는 두 개의 함수가 정의되어 있습니다.
 
@@ -1907,7 +1933,9 @@ print("현재 디렉토리: ", current_dir)
 ```python
 import os
 
-os.chdir('/path/to/your/directory')  # '/path/to/your/directory'를 원하는 경로로 변경해주세요.
+os.chdir('../')  # '/path/to/your/directory'를 원하는 경로로 변경해주세요.
+print("변경된 디렉토리: ", os.getcwd())
+os.chdir('./src/')  # '/path/to/your/directory'를 원하는 경로로 변경해주세요.
 print("변경된 디렉토리: ", os.getcwd())
 ```
 - 디렉토리 내 파일과 하위 디렉토리 목록 확인
@@ -1928,7 +1956,10 @@ print(os.listdir('.'))  # 새롭게 생성된 폴더가 포함된 파일 및 하
 ```python
 import os
 
+if os.path.exists('renamed_directory'):
+    os.rmdir('renamed_directory')
 os.rename('new_directory', 'renamed_directory')  # 'new_directory'를 'renamed_directory'로 이름 변경 
+print(os.listdir('.'))  # 이름이 바뀐 폴더가 포함된 파일 및 하위 디렉토리 목록 출력 'renamed_directory'로 이름 변경 
 print(os.listdir('.'))  # 이름이 바뀐 폴더가 포함된 파일 및 하위 디렉토리 목록 출력 
 ```
 위 코드들은 기본적인 os 모듈의 기능을 보여줍니다. 실제 사용 시에는 경로나 폴더명 등을 실제 환경에 맞게 수정해야 합니다.
@@ -2000,10 +2031,33 @@ random 모듈은 게임을 만들거나 통계적인 실험을 할 때 유용하
 예를 들어, 우리가 animals라는 이름의 패키지를 만들고 그 안에 bird.py, mammal.py 라는 모듈을 추가하고 싶다면 다음과 같은 구조로 파일을 생성합니다:
 
 ```python
-animals/
-    __init__.py
-    bird.py
-    mammal.py
+# animals/
+#     __init__.py
+#     bird.py
+#     mammal.py
+
+import os
+
+current_dir = os.getcwd()
+print("현재 디렉토리: ", current_dir)
+os.chdir('C:/JAKorea/JAkorea/JAkorea/Chat GPT/src/') #dir 변경
+if not os.path.exists('animals'):
+    os.mkdir('animals')
+
+file = open("./animals/bird.py", 'w')
+birs_fly = """
+def fly():
+    print("새가 날아 갑니다")
+"""
+file.write(birs_fly)
+file.close()
+file = open("./animals/__init__.py", 'w')
+file.write("pass")
+file.close()
+file = open("./animals/mammal.py", 'w')
+file.write("pass")
+file.close()
+
 ```
 그런 다음 각 .py 파일 내부에 함수나 클래스 등 원하는 코드를 작성합니다.
 
@@ -2148,12 +2202,6 @@ data = {
 }
 df = pd.DataFrame(data)
 print(df)
-
-# CSV 파일 읽기 
-df_from_csv = pd.read_csv('filename.csv') # filename.csv를 실제 파일 경로 및 이름으로 변경해주세요.
-
-# 일부 데이터만 출력하기 
-print(df.head()) # 처음부터 n개의 row 출력 (기본값 n=5)
 ```
 pandas 라이브러리의 주요 함수를 표로 정리하면 다음과 같습니다.
 
@@ -2215,6 +2263,30 @@ over_25 = df[df['Age'] > 25]
 print(over_25)
 ```
 - 데이터 파일 읽기 및 쓰기
+```python
+file = open("filename.csv", 'w')
+filename = """
+Name,Age,City
+John,25,New York
+Emily,30,San Francisco
+Michael,35,Chicago
+Jessica,28,Boston
+David,32,Miami
+Sophia,27,London
+Daniel,29,Tokyo
+Olivia,31,Sydney
+William,26,Berlin
+Ava,33,Toronto
+Alexander,24,Moscow
+Emma,29,Madrid
+James,34,Rome 
+Mia ,23 ,Paris 
+"""
+file.write(filename)
+file.close()
+
+!type filename.csv
+```
 ```python
 import pandas as pd
 
