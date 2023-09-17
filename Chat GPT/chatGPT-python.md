@@ -2212,11 +2212,11 @@ pandas 라이브러리의 주요 함수를 표로 정리하면 다음과 같습�
 | `df.head(n)` | DataFrame의 첫 n개 행을 반환합니다. 기본값은 5입니다. |
 | `df.tail(n)` | DataFrame의 마지막 n개 행을 반환합니다. 기본값은 5입니다. |
 | `df.describe()` | DataFrame의 각 컬럼에 대한 여러 가지 통계치 (평균, 최소값, 최대값 등)를 계산하여 보여줍니다.|
-|"`df.info()`"|DataFrame의 전반적인 정보(행과 열의 개수, 각 열에 대한 타입과 Non-Null 값 개수 등)를 요약하여 보여줍니다."|
-|"`df.columns`"|DataFrame의 컬럼 이름들을 반환합니다."|
-|"`df.index`"|DataFrame의 인덱스들을 반환합니다."|
-|"`df.sort_values(by=column_name)`"|column_name에 따라 값을 정렬한 새로운 DataFrame을 반환합니다."|
-|"`df.groupby(column_name)`"|column_name으로 그룹화된 새로운 DataFrameGroupBy 객체를 반환합니다."|
+| `df.info()` |DataFrame의 전반적인 정보(행과 열의 개수, 각 열에 대한 타입과 Non-Null 값 개수 등)를 요약하여 보여줍니다."|
+| `df.columns` |DataFrame의 컬럼 이름들을 반환합니다."|
+| `df.index` |DataFrame의 인덱스들을 반환합니다."|
+| `df.sort_values(by=column_name)` |column_name에 따라 값을 정렬한 새로운 DataFrame을 반환합니다."|
+| `df.groupby(column_name)` |column_name으로 그룹화된 새로운 DataFrameGroupBy 객체를 반환합니다."|
 
 이는 pandas 라이브러리가 제공하는 많은 함수 중 일부분만을 나열한 것입니다.
 다양한 데이터 분석 작업에서 pandas는 매우 유용하게 사용됩니다.
