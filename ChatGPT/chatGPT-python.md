@@ -623,6 +623,7 @@ print(s.title())  # ' Hello World '
 | lstrip()  | 왼쪽(시작) 끝의 공백을 제거합니다.| `" hello ".lstrip()`|
 | rstrip()  | 오른쪽(끝) 끝의 공백을 제거합니다.| `" hello ".rstrip()"`|
 | find()   | 지정된 값이 처음으로 나타나는 위치를 반환하며, 찾는 값이 없으면 -1을 반환합니다.| `"hello world".find("world")`|
+| rfind()   | 지정된 값이 마지막으로 나타나는 위치를 반환하며, 찾는 값이 없으면 -1을 반환합니다.| `"hello world".rfind("l")`|
 | replace(old, new[, count])   | old 값을 new 값으로 교체하여 새 문자열 객체를 반환한다. 선택적인 count 매개변수가 주어지면, 앞에서부터 count 개만큼 교체한다.| `'Hello world'.replace('world', 'Python')`|
 
 위 표는 파이썬 문자열에 적용할 수 있는 주요 메서드들입니다. 이외에도 여러 메서드와 기능들이 있으니 필요할 때마다 파이썬 공식 문서나 관련 자료를 참조하시는 것도 좋습니다.
