@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="app" class="container mt-5">
+        <h1 class="mb-4">계산기</h1>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="number" class="form-control" id="num1" v-model="num1">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <select class="form-control" id="operator" v-model="operator">
+                        <option v-for="op in operators" :value="op">{{ op }}</option>
+                    </select>
+                </div>
+            </div>            
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="number" class="form-control" id="num2" v-model="num2">
+                </div>
+            </div>           
+            <div class="col-md-2">
+                <button @click="calculate" class="btn btn-primary">계산</button>
+            </div>  
+
+        </div>
+        
+        <div class="mt-4">
+            <p> {{ result }}</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num1: 0,
+                num2: 0,
+                operator: '+',
+                result: null,
+                operators: ["+", "-", "*", "/", "//", "%", "**", "sqrt", "eval", "fabs", "factorial", "log", "sin", "cos", "tan", "asin", "acos", "atan", "pow", "log10", "exp", "floor", "ceil"]
+            },
+            methods: {
+                calculate: function() {
+                    // 백엔드 API와 통신
+                    axios.post('http://127.0.0.1:5000/calculator/calculate', {
+                        num1: this.num1,
+                        num2: this.num2,
+                        operator: this.operator
+                    })
+                    .then(response => {
+                        this.result = response.data.result;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        this.result = '오류 발생';
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
