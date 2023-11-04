@@ -1738,7 +1738,6 @@ print(Student.count)   # 출력: 2
 
 ```python
 # greetings.py
-# greetings.py
 
 def say_hello(name):
     print(f"안녕하세요, {name}님!")
