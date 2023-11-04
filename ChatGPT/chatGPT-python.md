@@ -2071,7 +2071,7 @@ from animals.bird import fly
 
 fly()
 ```
-위 코드에서 'animals.bird' 부분은 'animals'라는 이름의 팩기내에서 'bird'라는 모듈을 찾아가겠다는 의미입니다.
+위 코드에서 'animals.bird' 부분은 'animals'라는 이름의 패키지내에서 'bird'라는 모듈을 찾아가겠다는 의미입니다.
 
 또한 전체 모듈을 import 하여 사용할 수도 있습니다:
 
