@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue & Bootstrap Sample Page</title>
+  <!-- Add Bootstrap CSS to the head of your HTML -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div id="app" class="container">
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">{{ title }}</a>
+    </nav>
+
+    <!-- Main content -->
+    <div class="mt-5">
+      <h2>Welcome to My Simple Website</h2>
+      <p>This is a simple website created using Vue.js and Bootstrap.</p>
+      <button class="btn btn-primary" v-on:click="clickButton">{{ buttonText }}</button>
+    </div>
+  </div>
+
+  <!-- Add Vue.js just before the closing </body> tag -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        title: 'My Vue & Bootstrap Website',
+        buttonText: 'Click Me!'
+      },
+      methods: {
+        clickButton: function () {
+          this.buttonText = 'You clicked me!';
+        }
+      }
+    })
+  </script>
+</body>
+</html>
