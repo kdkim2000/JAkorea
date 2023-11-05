@@ -243,6 +243,9 @@ CORS(app) # 이 부분이 CORS를 적용하는 부분입니다.
 
 CORS는 웹의 핵심 보안 메커니즘이며, 이를 이해하고 올바르게 설정하는 것은 웹 개발에서 중요한 부분입니다.
 
+- 변경결과
+![](./images/restapi.png)
+
 ---
 ## 프론트엔드 프로그램
 
@@ -479,3 +482,6 @@ https://bootstrap-vue.org/
 </body>
 </html>
 ```
+
+- 변경결과
+![](./images/tasklist.png)

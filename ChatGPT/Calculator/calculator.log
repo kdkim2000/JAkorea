@@ -1,2 +1,35 @@
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 954-435-334
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 14:54:56] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 1, b: 2, operation: +, result: 3.0
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 14:54:56] "POST /calculator/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 14:59:36] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 12.3, b: , operation: sqrt, result: 3.5071355833500366
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 14:59:36] "POST /calculator/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 14:59:48] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 12.3, b: 123, operation: sqrt, result: 3.5071355833500366
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 14:59:48] "POST /calculator/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:00:06] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 123455, b: 12, operation: pow, result: 1.2534418927421361e+61
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:00:06] "POST /calculator/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:00:21] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 123, b: 12, operation: -, result: 111.0
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:00:21] "POST /calculator/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:00:25] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 123, b: 121, operation: -, result: 2.0
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:00:25] "POST /calculator/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:00:32] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 12, b: , operation: sqrt, result: 3.4641016151377544
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:00:33] "POST /calculator/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:00:44] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 2, b: , operation: sqrt, result: 1.4142135623730951
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:00:44] "POST /calculator/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:17:19] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 1234, b: , operation: sqrt, result: 35.12833614050059
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:17:20] "POST /calculator/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:17:31] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 2, b: 3, operation: pow, result: 8.0
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:17:31] "POST /calculator/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:20:34] "OPTIONS /calculator/ HTTP/1.1" 200 -
+DEBUG:root:a: 1234, b: 98, operation: sqrt, result: 35.12833614050059
+INFO:werkzeug:127.0.0.1 - - [05/Nov/2023 15:20:34] "POST /calculator/ HTTP/1.1" 200 -
