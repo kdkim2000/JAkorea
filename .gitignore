@@ -28,4 +28,7 @@ out/
 
 ### python
 **/dataset/
+**/data/
+**model.*
 **/python39/
+**/.ipynb_checkpoints/
